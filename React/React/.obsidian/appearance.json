@@ -1,0 +1,10 @@
+{
+  "interfaceFontFamily": "Inter",
+  "textFontFamily": "Inter",
+  "monospaceFontFamily": "JetBrains Mono",
+  "cssTheme": "Minimal",
+  "accentColor": "#9e007c",
+  "enabledCssSnippets": [
+    "obsidian"
+  ]
+}

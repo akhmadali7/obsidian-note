@@ -1,0 +1,6 @@
+{
+	"nodes":[
+		{"id":"2827db95d7ca255a","x":-197,"y":-280,"width":737,"height":100,"type":"text","text":"```bash\nnest generate controller <name> <path(optional)>\nnest generate controller user //created user/user.controller.ts and spec.ts\n```"}
+	],
+	"edges":[]
+}

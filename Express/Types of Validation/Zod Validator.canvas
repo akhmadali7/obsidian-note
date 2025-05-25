@@ -1,0 +1,101 @@
+{
+  "edges": [
+    {
+      "fromNode": "a1214ce10edbc0b8",
+      "fromSide": "right",
+      "id": "1f9f39b4b65b8b93",
+      "styleAttributes": {
+      },
+      "toNode": "118aa107be9e4826",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "2931603ef079de31",
+      "fromSide": "right",
+      "id": "412b2eee5a0c3a7e",
+      "label": "required all fields",
+      "styleAttributes": {
+      },
+      "toNode": "4c05e233fe64f4a3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "2931603ef079de31",
+      "fromSide": "right",
+      "id": "4aaa2b4f1fa2b80b",
+      "label": "allows partial fields (all optional)",
+      "styleAttributes": {
+      },
+      "toNode": "875374aaf54c2ed3",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 760,
+      "id": "ac66680f7bfda6ef",
+      "label": "Password",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1900,
+      "x": 720,
+      "y": -2240
+    },
+    {
+      "height": 400,
+      "id": "2931603ef079de31",
+      "styleAttributes": {
+      },
+      "text": "## Base Schema\n```js\nconst criteriaBaseSchema = z.object({  \n    criteria_name: z.string({  \n        invalid_type_error: \"Criteria name must be a string\",  \n    }),  \n    criteria_weight: z.coerce.number()  \n        .min(0, \"Weight must be at least 0\")  \n        .max(1, \"Weight cannot be more than 1\"),  \n    trend: z.enum([\"benefit\", \"cost\"], {  \n        invalid_type_error: \"Trend must be either 'benefit' or 'cost'\",  \n    }),  \n});\n```",
+      "type": "text",
+      "width": 800,
+      "x": 720,
+      "y": -560
+    },
+    {
+      "height": 480,
+      "id": "4c05e233fe64f4a3",
+      "styleAttributes": {
+      },
+      "text": "## Required\n```js\nexport const validateCreateCriteriaForm = (data) => {  \n    const result = criteriaBaseSchema.safeParse(data);  \n  \n    if (!result.success) {  \n        const errorMessages = result.error.errors.map(err => `${err.path.join('.')}: ${err.message}`);  \n        return {  \n            success: false,  \n            errors: errorMessages,  \n        };    }  \n  \n    return {  \n        success: true,  \n        data: result.data,  \n        errors: [],  \n    };  \n};\n```",
+      "type": "text",
+      "width": 800,
+      "x": 2020,
+      "y": -1080
+    },
+    {
+      "height": 560,
+      "id": "875374aaf54c2ed3",
+      "styleAttributes": {
+      },
+      "text": "## Partial()\n```js\nexport const validateUpdateCriteriaForm = (data) => {  \n    const updateSchema = criteriaBaseSchema.partial(); // All fields optional  \n    const result = updateSchema.safeParse(data);  \n  \n    if (!result.success) {  \n        const errorMessages = result.error.errors.map(err => `${err.path.join('.')}: ${err.message}`);  \n        return {  \n            success: false,  \n            errors: errorMessages,  \n        };    }  \n  \n    return {  \n        success: true,  \n        data: result.data,  \n        errors: [],  \n    };  \n};\n```\n\n`partial()` = “Make every field in this schema optional, but if any are present, validate them.”",
+      "type": "text",
+      "width": 980,
+      "x": 2200,
+      "y": -560
+    },
+    {
+      "height": 720,
+      "id": "a1214ce10edbc0b8",
+      "styleAttributes": {
+      },
+      "text": "```js\nimport { z } from 'zod';  \n  \n/**  \n * Utility to validate password using a predefined schema. * @param password - The password to validate.  \n * @returns An object containing success status and error messages (if any).  \n */export const validatePasswordStrength = (password) => {  \n    const schema = z.string() // Define the schema for password validation  \n        .min(8, \"Password must be at least 8 characters long\")  \n        .regex(/[A-Z]/, \"Password must contain at least one uppercase letter\")  \n        .regex(/[a-z]/, \"Password must contain at least one lowercase letter\")  \n        .regex(/[0-9]/, \"Password must contain at least one number\")  \n        // .regex(/[^A-Za-z0-9]/, \"Password must contain at least one special character\");  \n  \n    const result = schema.safeParse(password); // Validate the password  \n    if (!result.success) {  \n        const errorMessages = result.error.errors.map(err => {  \n            return `${err.path.join('.')}${err.message}`;  \n        });  \n  \n        return {  \n            success: false,  \n            errors: errorMessages  \n        };  \n    }  \n    return {  \n        success: true,  \n        errors: []  \n    };  \n};\n```",
+      "type": "text",
+      "width": 1000,
+      "x": 740,
+      "y": -2220
+    },
+    {
+      "height": 220,
+      "id": "118aa107be9e4826",
+      "styleAttributes": {
+      },
+      "text": "```js\nconst validationResult = validatePasswordStrength(new_password);  \nif (!validationResult.success) {  \n    return res.status(400).json({  \n        message: \"Validation failed\",  \n        errors: validationResult.errors,  \n    });}\n```",
+      "type": "text",
+      "width": 720,
+      "x": 1880,
+      "y": -2100
+    }
+  ]
+}

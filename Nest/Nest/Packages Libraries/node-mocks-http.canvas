@@ -1,0 +1,15 @@
+{
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "height": 109,
+      "id": "b3923e08c21ad0ec",
+      "text": "```shell\nnpm i --save-dev node-mocks-http\n```",
+      "type": "text",
+      "width": 469,
+      "x": -234,
+      "y": -54
+    }
+  ]
+}

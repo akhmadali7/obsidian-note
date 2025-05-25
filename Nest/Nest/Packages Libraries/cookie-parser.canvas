@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"d63e085fe48643cc","x":-360,"y":-440,"width":419,"height":98,"type":"text","text":"```shell\nnpm i cookie-parser\nnpm i --save-dev @types/cookie-parser\n```"},
+		{"id":"94cb1fd813998748","x":-360,"y":-760,"width":461,"height":260,"type":"text","text":"- NestJS itself doesn’t have built-in cookie utilities — it **relies on the underlying platform (Express or Fastify)** for cookie parsing and handling.\n- NestJS uses **Express (if you're using the Express adapter)**, so any cookie handling is done using **`cookie-parser`** or native `res.cookie()` / `req.cookies`."},
+		{"id":"bdf09879c28d4708","x":160,"y":-440,"width":520,"height":375,"type":"text","text":"## Enable in Main.ts\n```js\nimport { NestFactory } from '@nestjs/core';  \nimport { AppModule } from './app.module';  \nimport * as cookieParser from 'cookie-parser';  \n  \nasync function bootstrap() {  \n  const app = await NestFactory.create(AppModule);  \n  app.use(cookieParser('your-secret-key'));  \n  await app.listen(process.env.PORT ?? 3000);  \n}  \n  \nbootstrap();\n```"},
+		{"id":"a89c39fc48dec612","x":780,"y":-440,"width":542,"height":558,"type":"text","text":"## Setting and reading cookies\n```js\nimport { Controller, Get, Req, Res } from '@nestjs/common';\nimport { Request, Response } from 'express';\n\n@Controller('cookie')\nexport class CookieController {\n  @Get('set')\n  setCookie(@Res() res: Response) {\n    res.cookie('token', 'abc123', { httpOnly: true });\n    res.send('Cookie set!');\n  }\n\n  @Get('get')\n  getCookie(@Req() req: Request) {\n    const token = req.cookies['token'];\n    return { token };\n  }\n}\n\n```"}
+	],
+	"edges":[
+		{"id":"0e383595c453ed11","fromNode":"d63e085fe48643cc","fromSide":"right","toNode":"bdf09879c28d4708","toSide":"left"},
+		{"id":"7c2d4747d63845db","fromNode":"bdf09879c28d4708","fromSide":"right","toNode":"a89c39fc48dec612","toSide":"left"}
+	]
+}

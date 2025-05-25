@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"9202285f145d869f","x":-371,"y":-295,"width":1291,"height":655,"type":"text","text":"```js\nreturn (  \n    <>  \n        <div className=\"container\">  \n            <p>LoginPage</p>  \n  \n            <Formik  \n                initialValues={{email: '', name: ''}} // Initial form values  \n                validationSchema={validationSchema} // Apply validation schema  \n                onSubmit={handleFormOnSubmit}  \n            >  \n                {({errors, touched}) => (  \n                    <Form className=\"flex gap-2\">  \n                        <div>  \n                            <Field type=\"text\" name=\"email\" className=\"border-black border-2 p-1 rounded-md\" placeholder=\"user@email.com\"/>  \n                            {errors.email && touched.email &&  \n                                <div className=\"text-xs text-red-500\">{errors.email}</div>}  \n                        </div>  \n                        <div>  \n                            <Field type=\"text\" name=\"name\" className=\"border-black border-2 p-1 rounded-md\" placeholder=\"*******\"/>  \n                            {errors.name && touched.name && <div className=\"text-xs text-red-500\">{errors.name}</div>}  \n                        </div>  \n                        <button type=\"submit\" className=\"px-2 py-1 bg-slate-300 rounded-md\">Login</button>  \n                    </Form>  \n                )}  \n            </Formik>  \n        </div>  \n    </>);\n```"},
+		{"id":"9791d7dc6b858a62","x":1040,"y":-51,"width":758,"height":167,"type":"text","text":"```js\nconst handleFormOnSubmit = (values) => {  \n    console.log('Form submitted with values:', values);  \n    // Perform your custom submit logic (e.g., make an API call)  \n};\n```"},
+		{"id":"66a8ee6c854877f0","x":-767,"y":-295,"width":250,"height":90,"type":"text","text":"Validation Schema (can be from Yup, etc)"},
+		{"id":"42ef97755a1972c8","x":2000,"y":3,"width":250,"height":60,"color":"1","type":"text","text":"mutation React Query"},
+		{"id":"782396953f30de72","x":-767,"y":-760,"width":614,"height":323,"type":"text","text":"Formik by default validates fields on **blur** (when the field loses focus) or **change** (when the field value changes). To make validation happen only when the submit button is clicked, you need to change Formik's behavior slightly.\n```js\n//You could add this:\n validateOnBlur={false}  // Disable validation on blur\n validateOnChange={false} // Disable validation on change\n```"}
+	],
+	"edges":[
+		{"id":"6fe8a0587cfbb3c4","fromNode":"66a8ee6c854877f0","fromSide":"right","toNode":"9202285f145d869f","toSide":"left"},
+		{"id":"44d81ee7545f7bee","fromNode":"9202285f145d869f","fromSide":"right","toNode":"9791d7dc6b858a62","toSide":"left"},
+		{"id":"ef151afcd1dfbd3a","fromNode":"9791d7dc6b858a62","fromSide":"right","toNode":"42ef97755a1972c8","toSide":"left","color":"1","label":"next\nstep"}
+	]
+}

@@ -1,0 +1,190 @@
+{
+  "edges": [
+    {
+      "fromNode": "faedc59ecd76e8c3",
+      "fromSide": "right",
+      "id": "560aded7852f5c3a",
+      "styleAttributes": {
+      },
+      "toNode": "60854476660a5e69",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a256ec0a214338a6",
+      "fromSide": "right",
+      "id": "30c0d4333b171a6c",
+      "styleAttributes": {
+      },
+      "toNode": "6ba7a2dbcbfd9d62",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "de580c8071b5072b",
+      "fromSide": "right",
+      "id": "7ffbf983d9165c0c",
+      "styleAttributes": {
+      },
+      "toNode": "60c9c7f00eeb5596",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "b61b8d0a9ec562d7",
+      "fromSide": "left",
+      "id": "a4985f0f0401f290",
+      "styleAttributes": {
+      },
+      "toNode": "60c9c7f00eeb5596",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "d53fd848d9d90805",
+      "fromSide": "left",
+      "id": "9ca7de61c68e5049",
+      "styleAttributes": {
+      },
+      "toNode": "b61b8d0a9ec562d7",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "c6aea58db9740536",
+      "fromSide": "right",
+      "id": "0a051748ede407e9",
+      "styleAttributes": {
+      },
+      "toNode": "a256ec0a214338a6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c6aea58db9740536",
+      "fromSide": "right",
+      "id": "4b78a0581ef59213",
+      "styleAttributes": {
+      },
+      "toNode": "de580c8071b5072b",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 270,
+      "id": "a256ec0a214338a6",
+      "styleAttributes": {
+      },
+      "text": "Validate the keys is correct\n```js\n  \n// Validate that each parameter is an object with the required keys  \nif (validateKeys(parameters, requiredKeys, next)) {  \n    return;  \n}\n```\n",
+      "type": "text",
+      "width": 560,
+      "x": -560,
+      "y": 1000
+    },
+    {
+      "height": 920,
+      "id": "6ba7a2dbcbfd9d62",
+      "styleAttributes": {
+      },
+      "text": "```js\nimport {BAD_REQUEST} from '../constant/http.js';  \n  \nfunction validateKeys(req, requiredKeys, next) {  \n    // Empty array is NOT valid - return error  \n    if (req.length < 2) {  \n        const error = new Error('Parameters array must contain at least two items.');  \n        error.statusCode = BAD_REQUEST;  \n        error.code = \"INSUFFICIENT_PARAMETERS\";  \n        return next(error);  // Pass the error to the error handler  \n    }  \n  \n  \n  \n    // If array has items, validate each item is an object and has all required keys  \n    for (const param of req) {  \n        // Check if param is an object and not null  \n        if (typeof param !== 'object' || param === null || Array.isArray(param)) {  \n            const error = new Error(`Expected an array of objects, Found: ${typeof param}. Accepted format: [{${requiredKeys.join(', ')}}, {${requiredKeys.join(', ')}}, and so on ]`);  \n            error.statusCode = BAD_REQUEST;  \n            error.code = \"INVALID_DATA_TYPE\";  \n            next(error);  \n            return true;  \n        }  \n        // Check if every required key is present in the object  \n        for (const key of requiredKeys) {  \n            if (!(key in param) || param[key] === null || param[key] === undefined || param[key] === '') {  \n                const error = new Error(`Key '${key}' is missing or empty. Required keys are: ${requiredKeys.join(', ')}`);  \n                error.statusCode = BAD_REQUEST;  \n                error.code = \"MISSING_KEY\";  \n                next(error);  // Pass the error to the error handler  \n                return true;  // Validation error found  \n            }  \n        }  \n    }  \n    return false;  // No errors found, all keys are valid  \n}  \n  \nexport default validateKeys;\n```",
+      "type": "text",
+      "width": 1680,
+      "x": 160,
+      "y": 1000
+    },
+    {
+      "height": 920,
+      "id": "60c9c7f00eeb5596",
+      "styleAttributes": {
+      },
+      "text": "```js\n\n   \n function validateParameters(parameters, next) {  \n    // Check if parameters is an array  \n    if (!Array.isArray(parameters)) {  \n        const error = new Error('Parameters must be an array');  \n        error.statusCode = BAD_REQUEST;  \n        error.code = \"INVALID_DATA_TYPE\";  \n        next(error);  \n        return true;  \n    }  \n  \n    // Check if parameters array is empty  \n    if (parameters.length === 0) {  \n        const error = new Error('Parameters array cannot be empty');  \n        error.statusCode = BAD_REQUEST;  \n        error.code = \"EMPTY_PARAMETERS\";  \n        next(error);  \n        return true;  \n    }  \n  \n    try {  \n        // Attempt to parse/validate the entire array  \n        parametersArraySchema.parse(parameters);  \n        return false; // No errors found, validation passed  \n    } catch (zodError) {  \n        // Format error into user-friendly structure  \n        const formattedError = formatZodError(zodError);  \n  \n        const error = new Error(formattedError.message);  \n        error.statusCode = BAD_REQUEST;  \n        error.code = \"VALIDATION_ERROR\";  \n        error.details = formattedError.details;  \n        next(error);  \n        return true;  \n    }  \n}  \n  \nexport default validateParameters;\n```",
+      "type": "text",
+      "width": 680,
+      "x": 160,
+      "y": 2040
+    },
+    {
+      "height": 260,
+      "id": "de580c8071b5072b",
+      "styleAttributes": {
+      },
+      "text": "validate the value is correct (i guess this not reusable function)\n```js\n// Validate the type of each value within the parameters array using Zod validation  \nif (validateParameters(parameters, next)) {  \n    return;  \n}\n```",
+      "type": "text",
+      "width": 560,
+      "x": -560,
+      "y": 2040
+    },
+    {
+      "height": 980,
+      "id": "b61b8d0a9ec562d7",
+      "styleAttributes": {
+      },
+      "text": "```js\nfunction formatZodError(zodError) {  \n    // If no error details, return simple message  \n    if (!zodError.errors || zodError.errors.length === 0) {  \n        return {  \n            message: \"Validation failed\",  \n            details: []  \n        };  \n    }  \n  \n    // Create a clean array of error details  \n    const errorDetails = zodError.errors.map(err => {  \n        // Format the path in a user-friendly way  \n        let path = \"\";  \n        if (err.path && err.path.length > 0) {  \n            // For array items, show \"Parameter #X\"  \n            if (typeof err.path[0] === 'number') {  \n                path = `Parameter #${err.path[0] + 1}`;  \n  \n                // Add field name if available  \n                if (err.path.length > 1) {  \n                    path += ` (${err.path[1]})`;  \n                }  \n            } else {  \n                path = err.path.join('.');  \n            }  \n        }  \n  \n        return {  \n            field: path || \"unknown\",  \n            message: err.message || \"Invalid value\"  \n        };  \n    });  \n  \n    // Create main error message from first error  \n    const mainMessage = errorDetails.length > 0  \n        ? errorDetails[0].message  \n        : \"Validation failed\";  \n  \n    return {  \n        message: mainMessage,  \n        details: errorDetails  \n    };  \n}  \n```",
+      "type": "text",
+      "width": 640,
+      "x": 1000,
+      "y": 2040
+    },
+    {
+      "height": 480,
+      "id": "d53fd848d9d90805",
+      "styleAttributes": {
+      },
+      "text": "```js\n// improvedParameterValidator.js  \nimport {z} from 'zod';  \nimport {BAD_REQUEST} from '../../constant/http.js';  \n  \n// Basic parameter schema  \nconst parameterItemSchema = z.object({  \n    parameter_name: z.string().min(1, \"Parameter name cannot be empty\"),  \n    parameter_value: z.number()  \n});  \n  \n// Schema for the entire parameters array  \nconst parametersArraySchema = z.array(parameterItemSchema)  \n    .nonempty({  \n        message: \"Parameters array cannot be empty\"  \n    });  \n\n\n```",
+      "type": "text",
+      "width": 720,
+      "x": 1840,
+      "y": 2040
+    },
+    {
+      "height": 140,
+      "id": "c6aea58db9740536",
+      "styleAttributes": {
+      },
+      "text": "```js\n//Define key objects inside array  \nconst parameters = req.body.parameters  \nconst requiredKeys = [\"parameter_name\", \"parameter_value\"]  \n```",
+      "type": "text",
+      "width": 600,
+      "x": -1420,
+      "y": 1000
+    },
+    {
+      "height": 540,
+      "id": "60854476660a5e69",
+      "styleAttributes": {
+      },
+      "text": "```js\nfunction validateRequiredFields(requiredFields, body, next) {  \n    const missingFields = [];  \n    for (let field of requiredFields) {  \n        if (!body[field]) {  \n            missingFields.push(field);  \n        }    }  \n  \n    if (missingFields.length > 0) {  \n        // Pass an error to the next middleware with status 400  \n        const error = new Error(`Missing required fields: ${missingFields.join(', ')}`);  \n        error.statusCode = 400; // Bad Request  \n        error.code = \"MISSING_FIELD\";  \n        // error.missingFields = missingFields;  \n        next(error);  // Pass the error to the error handler  \n        return true;  \n    }  \n  \n    return false; // No missing fields  \n}  \n  \nexport default validateRequiredFields;\n```",
+      "type": "text",
+      "width": 1020,
+      "x": 160,
+      "y": 360
+    },
+    {
+      "height": 60,
+      "id": "d16eae2d41231399",
+      "styleAttributes": {
+      },
+      "text": "Validate of the body existence",
+      "type": "text",
+      "width": 560,
+      "x": -560,
+      "y": 240
+    },
+    {
+      "height": 240,
+      "id": "faedc59ecd76e8c3",
+      "styleAttributes": {
+      },
+      "text": "Validate the requied Fields first\n```js\nconst requiredFields = [\"parameters\"]\nif (validateRequiredFields(requiredFields, body, next)) {  \n    return;  \n}\n```\n",
+      "type": "text",
+      "width": 560,
+      "x": -560,
+      "y": 360
+    },
+    {
+      "height": 340,
+      "id": "4df1bc8daf9f9600",
+      "styleAttributes": {
+      },
+      "text": "requested form of json : \n```json\n{\n  \"parameters\" : [\n      {\"parameter_name\" : \"AA\", \"parameter_value\" : 3 },\n      {\"parameter_name\" : \"BB\", \"parameter_value\" : 1 }\n  ]\n}\n```\n\n- case : doing PUT update or POST  where need few identical data ",
+      "type": "text",
+      "width": 600,
+      "x": -560,
+      "y": -200
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "bda1f46b33adf5a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0a4c03894d091b5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "59cf5f6b39ad767d",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Submodules.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": -105.09000000000003,
+                  "zoom": 0
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Submodules"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6ed8b719fd968ca2",
+    "type": "split",
+    "children": [
+      {
+        "id": "9328de83aa9cc21a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21e22e425e70d325",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f1fc46542b6556c4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "11987a1fb9656c48",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "21ce678d2aeb04de",
+    "type": "split",
+    "children": [
+      {
+        "id": "b33a5509e4a789e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a9546144facc7c0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Reset unstaged and staged.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Reset unstaged and staged"
+            }
+          },
+          {
+            "id": "15a5f3fbd9f834c5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Reset unstaged and staged.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Reset unstaged and staged"
+            }
+          },
+          {
+            "id": "3c2227e3a1eed3ca",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d2a0ac51b0810e85",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Reset unstaged and staged.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Reset unstaged and staged"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "59cf5f6b39ad767d",
+  "lastOpenFiles": [
+    "Submodules.md",
+    "Submodules.canvas",
+    "Welcome.md",
+    "SSH/SSH.canvas",
+    "SSH",
+    "Reset unstaged and staged.md"
+  ]
+}

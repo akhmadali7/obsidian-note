@@ -1,0 +1,223 @@
+{
+  "edges": [
+    {
+      "fromNode": "cac33875d1d21367",
+      "fromSide": "right",
+      "id": "7247baabdb65d12b",
+      "styleAttributes": {
+        "pathfindingMethod": "direct"
+      },
+      "toNode": "af403d9a2dd6a866",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "af403d9a2dd6a866",
+      "fromSide": "top",
+      "id": "15a72500ffc3fd5d",
+      "styleAttributes": {
+        "pathfindingMethod": "square"
+      },
+      "toNode": "cac33875d1d21367",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "af403d9a2dd6a866",
+      "fromSide": "right",
+      "id": "0d00d95b96a1af22",
+      "styleAttributes": {
+      },
+      "toNode": "2f99724a149878dd",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "2f99724a149878dd",
+      "fromSide": "right",
+      "id": "5154be7d49a43676",
+      "styleAttributes": {
+      },
+      "toNode": "723d7b3993170969",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "723d7b3993170969",
+      "fromSide": "bottom",
+      "id": "c208084a5ce7932d",
+      "styleAttributes": {
+        "pathfindingMethod": "square"
+      },
+      "toNode": "af403d9a2dd6a866",
+      "toSide": "bottom"
+    },
+    {
+      "fromEnd": "arrow",
+      "fromNode": "723d7b3993170969",
+      "fromSide": "right",
+      "id": "44b89609ce1ba25d",
+      "styleAttributes": {
+      },
+      "toNode": "b3bedc1759486df9",
+      "toSide": "left"
+    },
+    {
+      "fromEnd": "arrow",
+      "fromNode": "b3bedc1759486df9",
+      "fromSide": "right",
+      "id": "224cccd5648529a8",
+      "styleAttributes": {
+      },
+      "toNode": "28cefbab99e02128",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "28cefbab99e02128",
+      "fromSide": "bottom",
+      "id": "b9032d714bd57757",
+      "styleAttributes": {
+        "path": "long-dashed"
+      },
+      "toNode": "a26f059f46362662",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "28cefbab99e02128",
+      "fromSide": "bottom",
+      "id": "33b9ee3240d41bf3",
+      "styleAttributes": {
+        "path": "long-dashed",
+        "pathfindingMethod": "square"
+      },
+      "toNode": "487f4970bfc62e03",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "487f4970bfc62e03",
+      "fromSide": "bottom",
+      "id": "f26694f87911bee1",
+      "styleAttributes": {
+        "path": "long-dashed",
+        "pathfindingMethod": "square"
+      },
+      "toNode": "a26f059f46362662",
+      "toSide": "top"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 480,
+      "id": "a38dc074e9a4ac42",
+      "label": "Basic Flow",
+      "type": "group",
+      "width": 2120,
+      "x": -400,
+      "y": -800
+    },
+    {
+      "height": 60,
+      "id": "cac33875d1d21367",
+      "styleAttributes": {
+      },
+      "text": "Client",
+      "type": "text",
+      "width": 140,
+      "x": -340,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "af403d9a2dd6a866",
+      "styleAttributes": {
+      },
+      "text": "Interceptor",
+      "type": "text",
+      "width": 180,
+      "x": 60,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "723d7b3993170969",
+      "styleAttributes": {
+      },
+      "text": "Controller",
+      "type": "text",
+      "width": 160,
+      "x": 640,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "b3bedc1759486df9",
+      "styleAttributes": {
+      },
+      "text": "Services",
+      "type": "text",
+      "width": 160,
+      "x": 920,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "2f99724a149878dd",
+      "styleAttributes": {
+      },
+      "text": "ValidationPipe",
+      "type": "text",
+      "width": 200,
+      "x": 360,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "28cefbab99e02128",
+      "styleAttributes": {
+      },
+      "text": "Repository",
+      "type": "text",
+      "width": 180,
+      "x": 1200,
+      "y": -740
+    },
+    {
+      "height": 60,
+      "id": "a26f059f46362662",
+      "styleAttributes": {
+      },
+      "text": "database",
+      "type": "text",
+      "width": 180,
+      "x": 1200,
+      "y": -420
+    },
+    {
+      "height": 60,
+      "id": "487f4970bfc62e03",
+      "styleAttributes": {
+      },
+      "text": "Models (if using ORM)",
+      "type": "text",
+      "width": 260,
+      "x": 1380,
+      "y": -580
+    },
+    {
+      "height": 60,
+      "id": "ba21d54ac2c2e202",
+      "text": "Client",
+      "type": "text",
+      "width": 260,
+      "x": -340,
+      "y": 0
+    },
+    {
+      "height": 60,
+      "id": "564b97ae82384f1a",
+      "styleAttributes": {
+      },
+      "text": "Middleware",
+      "type": "text",
+      "width": 260,
+      "x": 460,
+      "y": -100
+    }
+  ]
+}

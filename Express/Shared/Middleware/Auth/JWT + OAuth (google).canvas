@@ -1,0 +1,28 @@
+{
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "height": 1640,
+      "id": "37a31fc75fa39921",
+      "styleAttributes": {
+      },
+      "text": "```mermaid\nsequenceDiagram\n  participant User\n  participant Frontend\n  participant GoogleOAuth\n  participant Backend\n  participant DB\n\n  User->>Frontend: Click \"Login with Google\"\n  Frontend->>GoogleOAuth: Redirect to Google OAuth URL\n  GoogleOAuth-->>User: Show Google Login Page\n  User->>GoogleOAuth: Login + Consent\n  GoogleOAuth-->>Frontend: Redirect with Auth Code\n  Frontend->>Backend: Send Auth Code\n\n  Backend->>GoogleOAuth: Exchange Auth Code for Tokens\n  GoogleOAuth-->>Backend: Return access_token + id_token\n\n  Backend->>GoogleOAuth: (Optional) Verify ID Token\n  Backend->>Backend: Decode ID Token to get user info\n  Backend->>DB: Check/Create user\n  DB-->>Backend: User record\n\n  Backend->>Backend: Generate JWT access token + refresh token\n  Backend-->>Frontend: (✅ access token (in response body) ✅refresh token (set as HttpOnly cookie))\n\n  Frontend->>Frontend: Store access token in memory/state\n\n  Note over Frontend,Backend: Future API call\n  Frontend->>Backend: Send access token (in body)\n  Backend->>Backend: Verify access token\n  Backend-->>Frontend: Return protected data\n\n  Note over Frontend,Backend: When access token expires\n  Frontend->>Backend: Send refresh token (via HttpOnly cookie)\n  Backend->>Backend: Validate refresh token\n  Backend->>Backend: Generate new access token\n  Backend-->>Frontend: Return new access token\n\n```",
+      "type": "text",
+      "width": 1583,
+      "x": -263,
+      "y": -1000
+    },
+    {
+      "height": 60,
+      "id": "31cde726a581b941",
+      "styleAttributes": {
+      },
+      "text": "",
+      "type": "text",
+      "width": 250,
+      "x": 1708,
+      "y": -960
+    }
+  ]
+}

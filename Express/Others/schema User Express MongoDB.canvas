@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"b74cc7536231c895","type":"text","text":"main.js","x":-600,"y":-420,"width":250,"height":60},
+		{"id":"6accdf668146e389","type":"text","text":"[[Controllers]]","x":140,"y":-420,"width":250,"height":60},
+		{"id":"25625e5df4a5a98e","type":"text","text":"/utils","x":140,"y":-520,"width":250,"height":60},
+		{"id":"034889b45276f3d8","type":"text","text":"/routes","x":-280,"y":-420,"width":250,"height":60},
+		{"id":"31d339bfcd001132","type":"text","text":"/middlewares","x":-600,"y":-220,"width":250,"height":60},
+		{"id":"bc1974cc75697612","type":"text","text":".env","x":-350,"y":-780,"width":250,"height":60},
+		{"id":"acaddcfd0f1d2dee","type":"text","text":"[[Models]]","x":500,"y":-420,"width":250,"height":60},
+		{"id":"951bbaac58214d83","type":"text","text":"Services","x":500,"y":-250,"width":250,"height":60,"color":"5"}
+	],
+	"edges":[
+		{"id":"603e5ce374c03170","fromNode":"31d339bfcd001132","fromSide":"top","toNode":"b74cc7536231c895","toSide":"bottom","color":"5"},
+		{"id":"ef490e4d5994bd9a","fromNode":"034889b45276f3d8","fromSide":"left","toNode":"b74cc7536231c895","toSide":"right","color":"5"},
+		{"id":"e0eba61d209f497d","fromNode":"6accdf668146e389","fromSide":"left","toNode":"034889b45276f3d8","toSide":"right","color":"5"},
+		{"id":"c388b0b4898a651d","fromNode":"25625e5df4a5a98e","fromSide":"bottom","toNode":"6accdf668146e389","toSide":"top"},
+		{"id":"b163a95152d00006","fromNode":"bc1974cc75697612","fromSide":"bottom","toNode":"b74cc7536231c895","toSide":"top"},
+		{"id":"5817efca59a4169d","fromNode":"bc1974cc75697612","fromSide":"bottom","toNode":"25625e5df4a5a98e","toSide":"top"},
+		{"id":"b10eafdd36b5b7c6","fromNode":"bc1974cc75697612","fromSide":"bottom","toNode":"6accdf668146e389","toSide":"left"},
+		{"id":"f6c23b8a2f93a1f8","fromNode":"31d339bfcd001132","fromSide":"top","toNode":"034889b45276f3d8","toSide":"bottom","color":"1"},
+		{"id":"8a98a09656c75507","fromNode":"951bbaac58214d83","fromSide":"left","toNode":"6accdf668146e389","toSide":"right","color":"5"},
+		{"id":"4e7c8a9f52644694","fromNode":"acaddcfd0f1d2dee","fromSide":"bottom","toNode":"951bbaac58214d83","toSide":"top","color":"5"},
+		{"id":"0f49d69cc8579e75","fromNode":"acaddcfd0f1d2dee","fromSide":"left","toNode":"6accdf668146e389","toSide":"right","color":"1"}
+	]
+}

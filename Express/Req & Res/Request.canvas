@@ -1,0 +1,145 @@
+{
+  "edges": [
+    {
+      "fromNode": "6272d4ac35355565",
+      "fromSide": "bottom",
+      "id": "62826991a7c11d5a",
+      "styleAttributes": {
+        "pathfindingMethod": "square"
+      },
+      "toNode": "80091c6eed656fe2",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "6272d4ac35355565",
+      "fromSide": "bottom",
+      "id": "6557ee48f4145529",
+      "styleAttributes": {
+        "pathfindingMethod": "square"
+      },
+      "toNode": "b37e055d9b862d20",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "80091c6eed656fe2",
+      "fromSide": "bottom",
+      "id": "acaac418b301ea68",
+      "styleAttributes": {
+        "pathfindingMethod": "direct"
+      },
+      "toNode": "bba6868665fd6d3e",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "b37e055d9b862d20",
+      "fromSide": "bottom",
+      "id": "a8db096e558bac46",
+      "styleAttributes": {
+        "pathfindingMethod": "square"
+      },
+      "toNode": "bba6868665fd6d3e",
+      "toSide": "right"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 2774,
+      "id": "bce1b105638f7452",
+      "label": "Most used request property",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 4120,
+      "x": -1960,
+      "y": -360
+    },
+    {
+      "height": 2218,
+      "id": "8bacf91a95d8daf1",
+      "styleAttributes": {
+      },
+      "text": "# req.params\n```js\napp.get('/users/:id', (req, res) => {\n  res.send(`User ID is ${req.params.id}`);\n});\n\n```\n---\n### **What is `req.params`?**\n\n- `req.params` is an object that contains **route parameters** (named URL segments).\n- These are defined using **colon `:` syntax** in the route path.\n---\n### **When to use `req.params`:**\nUse it when you want to get **dynamic values from the URL path**, such as an ID or slug.\n---\n### **Example Route:**\n```js\napp.get('/users/:userId', (req, res) => {\n  const userId = req.params.userId;\n  res.send(`User ID is: ${userId}`);\n});\n```\n\n**Request URL:**\n```\nGET /users/42\n```\n\n**Output:**\n```json\n{\n  \"userId\": \"42\"\n}\n```\n\n---\n### **Multiple Params Example:**\n```js\napp.get('/posts/:postId/comments/:commentId', (req, res) => {\n  const { postId, commentId } = req.params;\n  res.send(`Post: ${postId}, Comment: ${commentId}`);\n});\n```\n\n**Request:**\n```\nGET /posts/123/comments/456\n```\n\n**req.params:**\n```json\n{\n  \"postId\": \"123\",\n  \"commentId\": \"456\"\n}\n```\n---\n\n### **Important Notes:**\n\n| Feature        | Explanation                                        |\n| -------------- | -------------------------------------------------- |\n| Type           | Always returns strings (you can convert if needed) |\n| Source         | Comes from **named route segments** only           |\n| Optional Param | Use `:param?` to make a param optional             |\n| Wildcard       | Use `*` for wildcard routes, or regex for patterns |\n\n---\n\n### Optional Param Example:\n```js\napp.get('/user/:id?', (req, res) => {\n  res.send(`ID: ${req.params.id || 'none'}`);\n});\n```",
+      "type": "text",
+      "width": 680,
+      "x": -40,
+      "y": -278
+    },
+    {
+      "height": 919,
+      "id": "b37e055d9b862d20",
+      "styleAttributes": {
+      },
+      "text": "#### **`multipart/form-data`**\n\n- **Purpose**:\n    \n    - This encoding type is used when the form involves **file uploads** or when binary data needs to be sent.\n        \n    - It allows the transmission of files, images, documents, or any other binary data alongside regular form fields (text data).\n        \n- **How It Works**:\n    \n    - Data is split into **multiple parts**, where each part represents a field or file.\n        \n    - Each part includes a header to describe the content type of the data (e.g., text, image, etc.).\n        \n    - A **boundary** separates each part in the form, and the data is not URL-encoded (it can contain binary data).\n        \n- **Characteristics**:\n    \n    - **File Upload Support**: It is specifically designed to handle file uploads, and supports sending **binary data**.\n        \n    - **Complex**: This encoding is more complex than `application/x-www-form-urlencoded` and can handle multiple types of data in a single request (e.g., text fields and files).\n        \n- **Example**:\n    \n    ```\n    --boundary\n    Content-Disposition: form-data; name=\"name\"\n    \n    John Doe\n    --boundary\n    Content-Disposition: form-data; name=\"file\"; filename=\"image.jpg\"\n    Content-Type: image/jpeg\n    \n    [binary data of image]\n    --boundary--\n    ```\n    \n- **Common Use Cases**:\n    \n    - **File Uploads**: When users need to upload files (images, documents, videos, etc.) via a form.\n        \n    - Forms that include both **binary data** (e.g., images) and **text data** (e.g., user name, email).\n        \n",
+      "type": "text",
+      "width": 841,
+      "x": -961,
+      "y": 801
+    },
+    {
+      "height": 659,
+      "id": "80091c6eed656fe2",
+      "styleAttributes": {
+      },
+      "text": "\n# **`application/x-www-form-urlencoded`**\n\n- **Purpose**:\n    \n    - This encoding type is used for submitting simple form data where the values are text-based (key-value pairs).\n        \n    - It is commonly used for submitting **small amounts of textual data** such as login forms, search forms, or simple contact forms.\n        \n- **How It Works**:\n    \n    - The form data is encoded as a URL query string (key-value pairs), where the keys and values are URL-encoded.\n        \n    - For example, spaces are converted to `+` or `%20`, and special characters are encoded (e.g., `&`, `=`, etc.).\n        \n- **Characteristics**:\n    \n    - **Text Only**: This encoding type is limited to **text data** and cannot handle file uploads or binary data.\n        \n    - **Simple Format**: It's straightforward and compact, making it ideal for smaller data submissions.\n        \n- **Example**:\n    \n    ```\n    name=John+Doe&email=johndoe%40example.com&message=Hello+there\n    ```\n    \n- **Common Use Cases**:\n    \n    - Simple text-based form submissions, such as login forms, contact forms, and search forms.\n",
+      "type": "text",
+      "width": 860,
+      "x": -1880,
+      "y": 801
+    },
+    {
+      "height": 2158,
+      "id": "38680a504f0945d8",
+      "styleAttributes": {
+      },
+      "text": "# req.query\n```js\napp.get('/search', (req, res) => {\n  const keyword = req.query.q;\n  res.send(`Searching for ${keyword}`);\n});\n```\n\n---\n\n### **What is `req.query`?**\n\n- `req.query` is an object that contains **URL query string parameters**.\n    \n- These are the key-value pairs **after the `?`** in a URL.\n    \n\n---\n\n### **When to use `req.query`:**\n\nUse it to get optional **filtering, searching, pagination, or sorting** values from the URL.\n\n---\n\n### **Example Route:**\n\n```js\napp.get('/search', (req, res) => {\n  const { q, page } = req.query;\n  res.send(`Searching for \"${q}\", page: ${page}`);\n});\n```\n\n**Request URL:**\n\n```\nGET /search?q=express&page=2\n```\n\n**`req.query`:**\n\n```json\n{\n  \"q\": \"express\",\n  \"page\": \"2\"\n}\n```\n\n---\n\n### **Use Case Examples:**\n\n#### 1. **Pagination:**\n\n```js\napp.get('/products', (req, res) => {\n  const limit = req.query.limit || 10;\n  const offset = req.query.offset || 0;\n  res.send(`Limit: ${limit}, Offset: ${offset}`);\n});\n```\n\n#### 2. **Filtering:**\n\n```js\napp.get('/users', (req, res) => {\n  const { role, active } = req.query;\n  res.send(`Filter - Role: ${role}, Active: ${active}`);\n});\n```\n\n**Request URL:**\n\n```\n/users?role=admin&active=true\n```\n\n---\n\n### **Important Notes:**\n\n|Feature|Explanation|\n|---|---|\n|Type|Returns strings (convert to numbers/booleans if needed)|\n|Source|Comes from **query string only** (`?key=value`)|\n|Defaults|You can set default values manually using `|\n|Multiple Values|Use arrays like `?tags=node&tags=express` → `tags: [node, express]` if using a parser like `qs`|\n",
+      "type": "text",
+      "width": 560,
+      "x": 720,
+      "y": -278
+    },
+    {
+      "height": 958,
+      "id": "6272d4ac35355565",
+      "styleAttributes": {
+      },
+      "text": "# req.body\n- Need body parser (`app.use(express.json());\n`)\n```js\napp.use(express.json());\n\napp.post('/login', (req, res) => {\n  const { username, password } = req.body;\n  res.send(`Logging in ${username}`);\n});\n```\n\n---\n\n### **Express Middleware for `req.body` (with usage)**\n\n| Middleware                               | Parses                   | Content-Type                          | Required for `req.body` | Quick Usage Example                                                                                                              |\n| ---------------------------------------- | ------------------------ | ------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |\n| `express.json()`                         | JSON                     | `application/json`                    | Yes                     | `app.use(express.json());`                                                                                                       |\n| `express.urlencoded({ extended: true })` | Form data                | `application/x-www-form-urlencoded`   | Yes                     | `app.use(express.urlencoded({ extended: true }));`                                                                               |\n| `express.text()`                         | Plain text               | `text/plain`                          | Yes                     | `app.use(express.text());`                                                                                                       |\n| `express.raw()`                          | Raw buffer               | Any (e.g. `application/octet-stream`) | Yes                     | `app.use(express.raw());`                                                                                                        |\n| `body-parser.json()`                     | JSON                     | `application/json`                    | Yes                     | `const bodyParser = require('body-parser');``app.use(bodyParser.json());`                                                        |\n| `body-parser.urlencoded()`               | Form data                | `application/x-www-form-urlencoded`   | Yes                     | `app.use(bodyParser.urlencoded({ extended: true }));`                                                                            |\n| `body-parser.text()`                     | Plain text               | `text/plain`                          | Yes                     | `app.use(bodyParser.text());`                                                                                                    |\n| `body-parser.raw()`                      | Raw buffer               | Any                                   | Yes                     | `app.use(bodyParser.raw());`                                                                                                     |\n| `multer` (3rd-party)                     | File uploads / form data | `multipart/form-data`                 | Yes (for file handling) | `const multer = require('multer');`<br>`const upload = multer();``app.post('/upload', upload.single('file'), (req, res) => {});` |\n\n---\n",
+      "type": "text",
+      "width": 1040,
+      "x": -1880,
+      "y": -280
+    },
+    {
+      "height": 2518,
+      "id": "233771c598dff8e7",
+      "styleAttributes": {
+      },
+      "text": "# req.header\n```js\napp.get('/secure', (req, res) => {\n  const auth = req.headers['authorization'];\n  res.send(`Auth header: ${auth}`);\n});\n```\n---\n\n### **What is `req.headers`?**\n\n- `req.headers` is an object containing the **HTTP headers** sent by the client (browser, API client, etc).\n    \n- Headers carry **metadata** like content type, authorization, user-agent, etc.\n    \n\n---\n\n### **When to use `req.headers`:**\n\nUse it to access things like:\n\n- **Authorization tokens**\n    \n- **Content-Type**\n    \n- **User-Agent info**\n    \n- **Custom headers** (e.g., `X-Request-ID`)\n    \n\n---\n\n### **Example Route:**\n\n```js\napp.get('/secure', (req, res) => {\n  const auth = req.headers['authorization'];\n  res.send(`Authorization Header: ${auth}`);\n});\n```\n\n**Request Header:**\n\n```\nAuthorization: Bearer abc123\n```\n\n**`req.headers`:**\n\n```json\n{\n  \"authorization\": \"Bearer abc123\",\n  \"host\": \"localhost:3000\",\n  \"user-agent\": \"...\",\n  ...\n}\n```\n\n---\n\n### **Accessing Header Values:**\n\n#### 1. **Standard Headers:**\n\n```js\nreq.headers['content-type']         // e.g., \"application/json\"\nreq.headers['user-agent']           // browser info\n```\n\n#### 2. **Custom Headers:**\n\n```js\nreq.headers['x-api-key']            // custom key\n```\n\n---\n\n### **Case-insensitive:**\n\nHeader names are **case-insensitive**, but always use lowercase keys in `req.headers`.\n\n---\n\n### **Set Headers in Postman or cURL:**\n\n**Postman:**\n\n- Add `Key: Authorization`, `Value: Bearer your_token`    \n\n**cURL:**\n\n```bash\ncurl -H \"Authorization: Bearer your_token\" http://localhost:3000/secure\n```\n\n---\n\n### **Example Use Case: Token Auth**\n\n```js\napp.get('/profile', (req, res) => {\n  const token = req.headers['authorization'];\n  if (!token) return res.status(401).send('No token provided');\n  // validate token...\n  res.send('Authorized');\n});\n```\n",
+      "type": "text",
+      "width": 720,
+      "x": 1360,
+      "y": -278
+    },
+    {
+      "height": 2021,
+      "id": "e7630bdc579b0c68",
+      "styleAttributes": {
+      },
+      "text": "# Other useful request property\n\n|Property|Description|Common Use Case|Example Usage|\n|---|---|---|---|\n|**`req.cookies`**|Contains cookies sent by the client (requires `cookie-parser` middleware)|Used to access cookies from the client (e.g., for sessions or authentication).|`req.cookies.sessionId`|\n|**`req.signedCookies`**|Contains signed cookies (requires `cookie-parser` with a secret)|Used to access signed cookies (useful for security).|`req.signedCookies.authToken`|\n|**`req.method`**|HTTP method (GET, POST, etc.)|Used to determine which HTTP method was used in the request.|`req.method` (e.g., `POST`)|\n|**`req.url`**|The full URL of the request, including the path and query string|Used to capture the full URL of the request.|`req.url` (e.g., `/users?sort=desc`)|\n|**`req.originalUrl`**|The original URL of the request before any middleware changed it|Useful for logging and tracking the original request URL.|`req.originalUrl` (e.g., `/search?q=term`)|\n|**`req.path`**|The path portion of the URL (without the query string)|Useful for routing and logging.|`req.path` (e.g., `/login`)|\n|**`req.hostname`**|The hostname derived from the `Host` header in the request|Useful for determining the host (useful in multi-domain apps).|`req.hostname` (e.g., `example.com`)|\n|**`req.ip`**|The IP address of the client (or the last proxy in case of proxies)|Used to get the IP address of the client (useful for logging, rate-limiting, etc.).|`req.ip` (e.g., `192.168.1.1`)|\n|**`req.protocol`**|The protocol used in the request (either 'http' or 'https')|Useful for determining if the request was made over HTTPS.|`req.protocol` (e.g., `https`)|\n|**`req.secure`**|Boolean – returns `true` if the connection is over HTTPS|Used to determine if the request was made over HTTPS.|`req.secure` (e.g., `true` for HTTPS)|\n|**`req.baseUrl`**|The base URL where the router is mounted|Useful for working with router-specific paths.|`req.baseUrl` (e.g., `/api`)|\n|**`req.route`**|The route object for the matched route (useful in middleware)|Used to capture the current route that matched the request.|`req.route` (e.g., `/users/:id`)|\n\n---\n\n### **Quick Usage Examples for Additional `req` Properties:**\n\n1. **`req.cookies` Example** (requires `cookie-parser`):\n    \n    ```js\n    app.get('/dashboard', (req, res) => {\n      const userSession = req.cookies.sessionId;\n      res.send(`Session ID: ${userSession}`);\n    });\n    ```\n    \n2. **`req.method` Example**:\n    \n    ```js\n    app.all('*', (req, res) => {\n      res.send(`You made a ${req.method} request!`);\n    });\n    ```\n    \n3. **`req.path` Example**:\n    \n    ```js\n    app.get('/users/*', (req, res) => {\n      res.send(`You requested path: ${req.path}`);\n    });\n    ```\n    \n4. **`req.ip` Example**:\n    \n    ```js\n    app.get('/ip', (req, res) => {\n      res.send(`Your IP address is: ${req.ip}`);\n    });\n    ```\n    \n\n---\n\n### Summary:\n\nIn addition to `req.headers`, `req.query`, `req.params`, and `req.body`, here are other important `req` properties to be aware of:\n- **`req.cookies`**: For accessing cookies (requires middleware like `cookie-parser`).\n    \n- **`req.signedCookies`**: For accessing signed cookies (if using a secret key with `cookie-parser`).\n    \n- **`req.method`**: For determining the HTTP method used.\n    \n- **`req.url`**: For capturing the full URL of the request.\n    \n- **`req.path`**: For capturing just the path part of the URL.\n    \n- **`req.hostname`**: For getting the hostname of the request.\n    \n- **`req.ip`**: For getting the client's IP address.\n    \n- **`req.protocol`**: For determining the protocol (`http` or `https`).\n    \n- **`req.secure`**: For checking if the connection is secure (HTTPS).\n    \n- **`req.baseUrl`**: For capturing the base URL for the router.\n    \n- **`req.route`**: For capturing the matched route (useful for middleware).\n    \n\n---\n\nLet me know if you'd like more examples or explanations on any of these properties!",
+      "type": "text",
+      "width": 1469,
+      "x": 2320,
+      "y": -320
+    },
+    {
+      "height": 594,
+      "id": "bba6868665fd6d3e",
+      "styleAttributes": {
+      },
+      "text": "\n### **Conclusion**\n\n- **`application/x-www-form-urlencoded`** and **`multipart/form-data`** are two **distinct types of request body encoding**.\n    \n    - **`application/x-www-form-urlencoded`** is used for simple **text-based form submissions** where the data is **URL-encoded**.\n        \n    - **`multipart/form-data`** is used when the form involves **file uploads** or **binary data**, where the data is divided into multiple parts with boundaries and can include both **text and binary data**.\n        \n- **Key Differences**:\n    \n    - **Text Only vs File Uploads**: `application/x-www-form-urlencoded` is best suited for simple text-based submissions, while `multipart/form-data` is necessary when you need to send files (e.g., images, documents) along with other data.\n        \n    - **Simplicity vs Complexity**: The former is simpler and more compact, whereas the latter is more complex but allows for more flexibility, handling both text and binary data.\n        \n\nIn essence, **`multipart/form-data`** and  **`application/x-www-form-urlencoded`**;  serves a different purpose altogether, primarily designed for scenarios involving **file uploads** and **binary data** transmission. ",
+      "type": "text",
+      "width": 720,
+      "x": -1800,
+      "y": 1720
+    }
+  ]
+}

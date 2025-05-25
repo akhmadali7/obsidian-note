@@ -1,0 +1,37 @@
+{
+  "edges": [
+    {
+      "fromNode": "b50542f70d5fb801",
+      "fromSide": "right",
+      "id": "1ffcc2b8dc22bc72",
+      "styleAttributes": {
+      },
+      "toNode": "bcfadbfbd19cfad5",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 360,
+      "id": "b50542f70d5fb801",
+      "styleAttributes": {
+      },
+      "text": "```js\n// http.js  \n  \nexport const OK = 200; // Request succeeded  \nexport const CREATED = 201; // Resource created  \nexport const BAD_REQUEST = 400; // Malformed or invalid request  \nexport const UNAUTHORIZED = 401; // Authentication required  \nexport const FORBIDDEN = 403; // User doesn't have permission  \nexport const NOT_FOUND = 404; // Resource not found  \nexport const CONFLICT = 409; // Request conflict with current state of resource  \nexport const UNPROCESSABLE_CONTENT = 422; // Semantic errors (validation errors)  \nexport const TOO_MANY_REQUEST = 429; // Too many requests (rate limit exceeded)  \nexport const INTERNAL_SERVER_ERROR = 500; // Generic server error\n```",
+      "type": "text",
+      "width": 760,
+      "x": -300,
+      "y": -220
+    },
+    {
+      "height": 540,
+      "id": "bcfadbfbd19cfad5",
+      "styleAttributes": {
+      },
+      "text": "```js\nexport const getAllCriteria = asyncHandler(async (req, res, next) => {  \n    const {user_id} = req.userData  \n    const allCriteria = await services.getAllCriteria(user_id)  \n    // const data = await services.getAllAlternatives(user_id, 'false')  \n  \n    if (!allCriteria || allCriteria.length === 0) {  \n        const error = new Error('Data criteria in database is empty');  \n        error.statusCode = NOT_FOUND;  \n        error.code = \"DATA_NOT_FOUND\";  \n        next(error);  \n        return;  \n    }  \n  \n    const optimizedAllCriteria = allCriteria.map(item => removeKeys(item, ['user_id', 'updated_at']));  \n    res.status(OK).json({  \n        message: \"success get all criteria\",  \n        user_id: user_id,  \n        total_criteria: allCriteria.length,  \n        data: optimizedAllCriteria  \n    });  \n})\n```",
+      "type": "text",
+      "width": 1020,
+      "x": 640,
+      "y": -310
+    }
+  ]
+}

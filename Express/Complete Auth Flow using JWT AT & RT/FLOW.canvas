@@ -1,0 +1,167 @@
+{
+  "edges": [
+    {
+      "color": "5",
+      "fromNode": "744f294c7ac340fc",
+      "fromSide": "left",
+      "id": "705469beddfd3131",
+      "toNode": "00aa9bc444e56163",
+      "toSide": "right"
+    },
+    {
+      "color": "4",
+      "fromNode": "6cf843027a5e27b7",
+      "fromSide": "left",
+      "id": "d415890dd42ac438",
+      "toNode": "7eb1b29998b6b98e",
+      "toSide": "right"
+    },
+    {
+      "color": "2",
+      "fromNode": "7eb1b29998b6b98e",
+      "fromSide": "left",
+      "id": "18cfa04c1c2356bd",
+      "toNode": "65705e403cc55d50",
+      "toSide": "right"
+    },
+    {
+      "color": "#356966",
+      "fromNode": "44607421cc080750",
+      "fromSide": "left",
+      "id": "6ace6cccb1cd1b47",
+      "toNode": "6cf843027a5e27b7",
+      "toSide": "right"
+    },
+    {
+      "color": "1",
+      "fromNode": "00aa9bc444e56163",
+      "fromSide": "left",
+      "id": "11fb8e29ff43fe93",
+      "toNode": "4afd00221a6674d7",
+      "toSide": "right"
+    },
+    {
+      "color": "3",
+      "fromNode": "65705e403cc55d50",
+      "fromSide": "top",
+      "id": "0126563673ef0520",
+      "toNode": "00aa9bc444e56163",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "c7c339981b823682",
+      "fromSide": "top",
+      "id": "064b0c74de7dfb54",
+      "toNode": "65705e403cc55d50",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "color": "1",
+      "height": 2970,
+      "id": "00aa9bc444e56163",
+      "label": "Routes",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 1399,
+      "y": -6720
+    },
+    {
+      "color": "3",
+      "height": 2970,
+      "id": "65705e403cc55d50",
+      "label": "Controllers",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 1399,
+      "y": -1968
+    },
+    {
+      "color": "4",
+      "height": 2970,
+      "id": "6cf843027a5e27b7",
+      "label": "Models",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 5199,
+      "y": -1968
+    },
+    {
+      "color": "2",
+      "height": 2970,
+      "id": "7eb1b29998b6b98e",
+      "label": "Services",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 3336,
+      "y": -1968
+    },
+    {
+      "height": 2970,
+      "id": "4afd00221a6674d7",
+      "label": "main",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": -1120,
+      "y": -3750
+    },
+    {
+      "color": "5",
+      "height": 2970,
+      "id": "744f294c7ac340fc",
+      "label": "middlewares",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 3336,
+      "y": -6720
+    },
+    {
+      "color": "6",
+      "height": 2970,
+      "id": "c7c339981b823682",
+      "label": "utils",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 1399,
+      "y": 1670
+    },
+    {
+      "color": "#147e85",
+      "height": 2970,
+      "id": "44607421cc080750",
+      "label": "config",
+      "styleAttributes": {
+      },
+      "type": "group",
+      "width": 1094,
+      "x": 7226,
+      "y": -1968
+    },
+    {
+      "height": 846,
+      "id": "511db95057f2e439",
+      "styleAttributes": {
+      },
+      "text": "\n# Login\n```js\nexport const login = asyncHandler(async (req, res, next) => {  \n    //Check if body is exist  \n    if (validateReqBodyExistence(req, next)) {  \n        return; // Early exit if the body is invalid  \n    }  \n  \n    const requiredFields = ['email', 'password']  \n    const body = req.body  \n  \n    //Check if body content is as expected as requirement  \n    if (validateRequiredFields(requiredFields, body, next)) {  \n        return;  \n    }  \n  \n    //Same error message used whether email nor password incorrect  \n    function sendError(message, next) {  \n        const error = new Error(message);  \n        error.statusCode = 401; // 401 Unauthorized is appropriate for authentication issues  \n        error.code = \"INVALID_CREDENTIALS\"; // General error code for invalid login credentials  \n        next(error);  \n    }  \n  \n    //Check whether user is registered -> get user data  \n    const {email, password} = body  \n    const user = await models.login(email)  \n    console.log(user)  \n    if (!user) {  \n        sendError('Invalid email or password.', next);  \n        return;  \n    }  \n  \n    //Check whether user password is correct  \n    const {password_hash} = user  \n    const isPasswordCorrect = await bcrypt.compare(password, password_hash)  \n    if (!isPasswordCorrect) {  \n        sendError('Invalid email or password.', next);  \n        return;  \n    }  \n  \n    // Check if the user account is active (verified)  \n    if (user.status !== 1) {  \n  \n        const payloadForVerification = {  \n            email: user.email,  \n            uuid: user.uuid  \n        }  \n  \n        const verification_token = await generateVerificationToken(payloadForVerification)  \n        //TODO send token to email  \n  \n        const error = new Error(`Account is not active. Please verify your account to activate it`);  \n        error.statusCode = 400; // Bad request or token-related issues  \n        error.statusCode = 400; // Bad request or token-related issues  \n        error.code = \"ACCOUNT_NOT_VERIFIED\"; // Specific error code for unverified account  \n        next(error);  \n        return;  \n    }  \n  \n    //Create payload to used in JWT token  \n    const payload = {  \n        uuid: user.uuid,  \n        username: user.username,  \n        role: user.role,  \n    }  \n    //Generate AT & RT  \n    const access_token = await generateAccessToken(payload)  \n    const refresh_token = await generateRefreshToken(payload)  \n  \n  \n    // Send the refresh token in the cookie to FE  \n    res.cookie('refresh_token', refresh_token, {  \n        httpOnly: true, // Make it accessible only by the server  \n        secure: process.env.NODE_ENV === 'production', // Set to true in production  \n        maxAge: parseInt(process.env.JWT_REFRESH_TOKEN_EXPIRES_IN) * 24 * 60 * 60 * 1000 // Set expiration based on your config  \n    });  \n  \n    //TODO insert / update refresh token in database  \n    const saveRefreshToken = await models.saveRefreshToken(user.uuid, refresh_token)  \n  \n    //exclude password from response  \n    function removePasswordHash(user) {  \n        const {password_hash, ...userWithoutPassword} = user;  \n        return userWithoutPassword;  \n    }  \n  \n    const user_data = removePasswordHash(user);  \n  \n    //Send data and AT as json  \n    res.status(200).json({  \n        message: \"success login\",  \n        data: {user_data, access_token, refresh_token: \"<check-cookies>\"}  \n    });  \n})\n```",
+      "type": "text",
+      "width": 882,
+      "x": 1520,
+      "y": -1920
+    }
+  ]
+}

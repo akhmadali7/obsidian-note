@@ -1,0 +1,73 @@
+{
+  "edges": [
+    {
+      "fromNode": "3314ddd1c675fe46",
+      "fromSide": "left",
+      "id": "9184424f55785683",
+      "toNode": "2d26b53b883edd57",
+      "toSide": "right"
+    },
+    {
+      "color": "1",
+      "fromNode": "e67d70dc6d341357",
+      "fromSide": "left",
+      "id": "3b6bf7d2e9386812",
+      "toNode": "3314ddd1c675fe46",
+      "toSide": "right"
+    },
+    {
+      "color": "5",
+      "fromNode": "39f29551d18cbcca",
+      "fromSide": "left",
+      "id": "cf73865c856771fb",
+      "toNode": "3314ddd1c675fe46",
+      "toSide": "right"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 260,
+      "id": "2d26b53b883edd57",
+      "styleAttributes": {
+      },
+      "text": "```js\n// This route handler has asynchronous code\napp.get('/some-resource', asyncHandler(async (req, res, next) => {\n    const result = await someAsyncFunction(); // Simulate an async operation\n    if (!result) {\n        throw new Error(\"Resource not found\");\n    }\n    res.json(result);\n}));\n```",
+      "type": "text",
+      "width": 804,
+      "x": -1524,
+      "y": -220
+    },
+    {
+      "height": 50,
+      "id": "3314ddd1c675fe46",
+      "styleAttributes": {
+      },
+      "text": "choose one",
+      "type": "text",
+      "width": 160,
+      "x": -660,
+      "y": -115
+    },
+    {
+      "height": 202,
+      "id": "e67d70dc6d341357",
+      "styleAttributes": {
+      },
+      "text": "```js\nconst asyncHandler = (fn) => (req, res, next) => {\n    // The async function is wrapped with a promise\n    // If it fails, the error will be passed to the next middleware\n    Promise.resolve(fn(req, res, next)).catch(next);\n};\n```",
+      "type": "text",
+      "width": 660,
+      "x": -400,
+      "y": -65
+    },
+    {
+      "height": 86,
+      "id": "39f29551d18cbcca",
+      "styleAttributes": {
+      },
+      "text": "```js\nimport asyncHandler from 'express-async-handler';\n```",
+      "type": "text",
+      "width": 488,
+      "x": -400,
+      "y": -201
+    }
+  ]
+}

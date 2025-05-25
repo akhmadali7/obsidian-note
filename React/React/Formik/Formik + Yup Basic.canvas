@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"f7e2864f1ab90221","type":"group","x":-1420,"y":-240,"width":1880,"height":820,"label":"Formik"},
+		{"id":"c472886cdd1e010a","type":"group","x":-1420,"y":-880,"width":730,"height":420,"label":"Yup"},
+		{"id":"f2608cced94c07e0","type":"group","x":-2140,"y":-260,"width":428,"height":137,"label":"React query or another"},
+		{"id":"d530fb86549fdad0","type":"text","text":"```js\nconst {handleSubmit, values, handleChange, handleBlur, touched, errors, isSubmitting} = \nuseFormik({  \n    initialValues: {  \n        name: '',  \n        age: 0  \n    },  \n    validationSchema: userSchema,  \n    validateOnChange: false, // Disable instant validation on change  \n\tvalidateOnBlur: true, // Enable validation on blur\n    onSubmit: (values, {resetForm}) => {  \n        console.log('submitted values', values)  \n        resetForm();  \n        //method from react query (POST etc) or another \n    }  \n})\n```","x":-1360,"y":-200,"width":820,"height":390},
+		{"id":"49b76da5de88d80d","type":"text","text":"```js\nconst userSchema = object({  \n    name: string()\n\t    .required()\n\t    .min(8, 'Name minimal 8 chara'),  \n    age: number()\n\t    .required()  \n    password: string()\n        .required('Password is required')\n        .min(6, 'Password must be at least 6 characters'),\n    confirmedPassword: string()\n        .required('Please confirm your password')\n        .oneOf([string().ref('password')], 'Passwords must match')\n})\n```","x":-1400,"y":-860,"width":680,"height":380},
+		{"id":"8b15c960cefbf2c9","type":"text","text":"```markdown\nusing data/object from formik \n```","x":-2112,"y":-243,"width":358,"height":99},
+		{"id":"6fc4b0f70cc73513","type":"text","text":"```js\n//check all methods available in actions\nonSubmit: (values, actions) => {  \n    console.log('values', values) \n    console.log('action', actions)   \n}\n```","x":-1360,"y":300,"width":410,"height":180,"color":"3"},
+		{"id":"cd011110dc23caf3","type":"text","text":"```html\n<form onSubmit={handleSubmit}>  \n    <input type=\"text\" id=\"name\" name=\"name\" onChange={handleChange} value={values.name} onBlur=handleBlur}/>  \n    <input type=\"number\" id=\"age\" name=\"age\" onChange={handleChange} value={values.age} onBlur={andleBlur}/>   \n    <button className=\"btn\" type=\"submit\" disabled={isSubmitting}>Submit</button>  \n</form>\n```","x":-820,"y":300,"width":1196,"height":200},
+		{"id":"b116ad7b3ef8f6ce","type":"text","text":"```js\n //validation feedback\n {touched.age && errors.age ? (  \n        <div style={{ color: 'red' }}>{errors.age}</div>  \n    ) : null} \n\n  {touched.name && errors.name ? (  \n        <div style={{ color: 'red' }}>{errors.name}</div>  \n    ) : null}  \n```","x":-260,"y":-135,"width":660,"height":260}
+	],
+	"edges":[
+		{"id":"07083faf00be1865","fromNode":"49b76da5de88d80d","fromSide":"left","toNode":"d530fb86549fdad0","toSide":"left"},
+		{"id":"fb51318b23b3a7f3","fromNode":"8b15c960cefbf2c9","fromSide":"right","toNode":"d530fb86549fdad0","toSide":"left","fromEnd":"arrow","color":"5"},
+		{"id":"2bdd960df1f07f84","fromNode":"cd011110dc23caf3","fromSide":"top","toNode":"d530fb86549fdad0","toSide":"right"},
+		{"id":"9423e42ec9bde8de","fromNode":"d530fb86549fdad0","fromSide":"right","toNode":"b116ad7b3ef8f6ce","toSide":"left"},
+		{"id":"526691c343ef67d7","fromNode":"6fc4b0f70cc73513","fromSide":"top","toNode":"d530fb86549fdad0","toSide":"bottom","fromEnd":"arrow","color":"3"}
+	]
+}

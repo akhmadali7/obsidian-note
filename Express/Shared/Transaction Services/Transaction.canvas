@@ -1,0 +1,78 @@
+{
+  "edges": [
+    {
+      "fromNode": "8ae71cb44f2f90e5",
+      "fromSide": "right",
+      "id": "c7cdb1a8ff49ecb5",
+      "toNode": "19110cb57746034a",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "8ae71cb44f2f90e5",
+      "fromSide": "right",
+      "id": "100ac991bbe43255",
+      "toNode": "f922a790d1f071d5",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "19110cb57746034a",
+      "fromSide": "right",
+      "id": "ab265c942de59389",
+      "toNode": "74e46f5b4e2ed36f",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "f922a790d1f071d5",
+      "fromSide": "right",
+      "id": "61cbdf2e0dbff508",
+      "toNode": "74e46f5b4e2ed36f",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 860,
+      "id": "8ae71cb44f2f90e5",
+      "styleAttributes": {
+      },
+      "text": "```js\nimport dbPool from \"../config/database.js\";\n\nconst start = async () => {\n    const SQLQuery = 'START TRANSACTION';\n    try {\n        await dbPool.query(SQLQuery);\n    } catch (error) {\n        console.error(\"Error starting transaction: \", error);\n        throw error; // Rethrow or handle accordingly\n    }\n}\n\nconst commit = async () => {\n    const SQLQuery = 'COMMIT';\n    try {\n        await dbPool.query(SQLQuery);\n    } catch (error) {\n        console.error(\"Error committing transaction: \", error);\n        throw error; // Rethrow or handle accordingly\n    }\n}\n\nconst rollback = async () => {\n    const SQLQuery = 'ROLLBACK';\n    try {\n        await dbPool.query(SQLQuery);\n    } catch (error) {\n        console.error(\"Error rolling back transaction: \", error);\n        throw error; // Rethrow or handle accordingly\n    }\n}\n\nexport {\n    start,\n    commit,\n    rollback\n};\n```",
+      "type": "text",
+      "width": 680,
+      "x": -700,
+      "y": -680
+    },
+    {
+      "height": 180,
+      "id": "19110cb57746034a",
+      "styleAttributes": {
+      },
+      "text": "```js\nawait transactionModel.start()  // Start the transaction      \nconst newAlt = await models.createAlternative(body, user_id, uuid_alternative)  // Create the new alternative\nconst seedScore = await models.seedScorebyAlternative(uuid_alternative)\nawait transactionModel.commit()  // Commit the transaction if everything is successful \n```",
+      "type": "text",
+      "width": 1100,
+      "x": 220,
+      "y": -480
+    },
+    {
+      "height": 168,
+      "id": "f922a790d1f071d5",
+      "styleAttributes": {
+      },
+      "text": "## If fail happen\n\n```js\nawait transactionModel.rollback()  // Rollback the transaction in case of an error \n```",
+      "type": "text",
+      "width": 779,
+      "x": 220,
+      "y": -250
+    },
+    {
+      "height": 454,
+      "id": "74e46f5b4e2ed36f",
+      "styleAttributes": {
+      },
+      "text": "in try catch\n```js\nconst uuid_alternative = uuidv4();  \ntry {  \n    await transactionModel.start()  // Start the transaction      \n    const newAlt = await models.createAlternative(body, user_id, uuid_alternative)  // Create the new alternative\n    await transactionModel.commit()  // Commit the transaction if everything is successful  \n  \n    res.status(200).json({  \n        message: \"success create one new alternative\",  \n        data: body  \n    });  \n} catch (error) {   \n    await transactionModel.rollback()  // Rollback the transaction in case of an error  \n    next(error);  // Pass the error to the next middleware (e.g., for logging) \n}\n```",
+      "type": "text",
+      "width": 1073,
+      "x": 1420,
+      "y": -480
+    }
+  ]
+}

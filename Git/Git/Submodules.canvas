@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"7655cbf20383bdba","x":-80,"y":-460,"width":620,"height":190,"type":"group","label":"Parent Git"},
+		{"id":"a251db5ccf43cd93","type":"text","text":"## **What is a Git Submodule?**\n\nA **Git submodule** is essentially a Git repository inside another Git repository. It's used when you want to include an external project in your repository but still treat it as a separate project with its own commit history.\n#### **When to use Git Submodules**:\n- You want to include a third-party library in your project, but you don’t want to manually copy the files.\n- You want to keep two separate repositories linked together, but not directly integrated.\n#### **Submodule Relationship**:\n- The main repository (parent) tracks the submodule's **commit hash**, not a branch or tag.\n- The submodule has its own repository and commit history, separate from the parent repository.","x":-740,"y":-480,"width":560,"height":580},
+		{"id":"e217978d4c7717aa","type":"text","text":"Front-end Git Repo ","x":240,"y":-400,"width":250,"height":60},
+		{"id":"867207eebf0b3318","type":"text","text":"Back-end Git Repo ","x":-40,"y":-400,"width":250,"height":60}
+	],
+	"edges":[]
+}

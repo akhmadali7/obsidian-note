@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"587d05b509b2b5d0","x":560,"y":-280,"width":1764,"height":359,"type":"group","label":"components"},
+		{"id":"d736b53a4f943a4b","type":"text","text":"```js\n// accountStore.js\nimport { create } from 'zustand';\n\nconst useAccountStore = create((set) => ({\n  accountData: { username: '', email: '', loggedIn: false },\n  setAccountData: (newAccountData) => set((state) => ({ accountData: { ...state.accountData, ...newAccountData } })),\n}));\n\nexport default useAccountStore;\n```","x":-720,"y":-440,"width":1086,"height":276,"color":"5"},
+		{"id":"1b2eaafdd389c782","type":"text","text":"```js\n// purchaseStore.js\nimport { create } from 'zustand';\n\nconst usePurchaseStore = create((set) => ({\n  purchaseData: { items: [], totalAmount: 0 },\n  addPurchaseItem: (item) => set((state) => ({\n    purchaseData: {\n      items: [...state.purchaseData.items, item],\n      totalAmount: state.purchaseData.totalAmount + item.price\n    }\n  })),\n}));\n\nexport default usePurchaseStore;\n```","x":-720,"y":-100,"width":1086,"height":380,"color":"5"},
+		{"id":"416afb7a59dc62d2","type":"text","text":"```js\n  const { accountData, setAccountData } = useAccountStore();\n  const { purchaseData, addPurchaseItem } = usePurchaseStore();\n```","x":580,"y":-164,"width":630,"height":127},
+		{"id":"0a8e24b03dfdd1cc","type":"text","text":"```js\n  <div>\n      <h1>My App</h1>\n      <h2>Account Info</h2>\n      <p>Username: {accountData.username}</p>\n      <button onClick={() => setAccountData({ username: 'newUser' })}>Change Username</button>\n      <h2>Purchase Info</h2>\n      <ul>\n        {purchaseData.items.map(item => <li key={item.id}>{item.name} - ${item.price}</li>)}\n      </ul>\n      <button onClick={() => addPurchaseItem({ id: '1', name: 'Product A', price: 20 })}>Add Item</button>\n  </div>\n```","x":1300,"y":-260,"width":1004,"height":319}
+	],
+	"edges":[
+		{"id":"2a033ff0ff7521d7","fromNode":"d736b53a4f943a4b","fromSide":"right","toNode":"416afb7a59dc62d2","toSide":"left","color":"5"},
+		{"id":"7b06ca574ee61fb9","fromNode":"1b2eaafdd389c782","fromSide":"right","toNode":"416afb7a59dc62d2","toSide":"left","color":"5"},
+		{"id":"acfd5ba113440739","fromNode":"416afb7a59dc62d2","fromSide":"right","toNode":"0a8e24b03dfdd1cc","toSide":"left"}
+	]
+}

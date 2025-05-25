@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"497b326f4ad5c9a8","type":"text","text":"```js\n // utils.js  \n/**  \n * Check if the request body is missing or empty. * @param {Object} req - The Express request object.  \n * @param {NextFunction} next - The Express next function to pass errors.  \n * @returns {boolean} - Returns true if the body is missing/empty, otherwise false.  \n */function validateReqBodyExistence(req, next) {  \n    if (!req.body || Object.keys(req.body).length === 0) {  \n        const error = new Error('Request body is missing or empty');  \n        error.statusCode = 400;  \n        error.code = \"MISSING_BODY\";  \n        return next(error);  // Pass the error to the error handler  \n    }  \n    return false;  // No issue with the body  \n}  \n  \nexport default validateReqBodyExistence;\n```","x":-380,"y":-620,"width":960,"height":460},
+		{"id":"c766326cfb848b1f","type":"text","text":"```js\n if (validateReqBodyExistence(req, next)) {\n        return; // Early exit if the body is invalid\n    }\n```","x":-360,"y":-40,"width":549,"height":139}
+	],
+	"edges":[]
+}

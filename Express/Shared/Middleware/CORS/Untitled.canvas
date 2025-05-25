@@ -1,0 +1,35 @@
+{
+  "edges": [
+    {
+      "fromNode": "fe0b67e53728401b",
+      "fromSide": "right",
+      "id": "736c3e7c3cf28a9d",
+      "styleAttributes": {
+      },
+      "toNode": "d33dbdd3eed9698d",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 760,
+      "id": "fe0b67e53728401b",
+      "styleAttributes": {
+      },
+      "text": "```js\n// /middleware/corsMiddleware.js  \n  \nimport cors from 'cors'  \nimport {APP_ORIGIN} from '../constant/env.js';  \n  \nconst corsMiddleware = () => {  \n  const allowedOrigins = [  \n    APP_ORIGIN,  // Example: your frontend URL during development  \n    'https://yourfrontend.com', // Replace with production frontend URL  \n      'http://localhost:4000'  \n    // Add other allowed origins here  \n  ];  \n  \n  const corsOptions = {  \n    origin: (origin, callback) => {  \n      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {  \n        // Allow the request if the origin is in the allowedOrigins array  \n        callback(null, true);  \n      } else {  \n        // If origin is not allowed, reject it with an error  \n        callback(new Error('Not allowed by CORS'));  \n      }  \n    },  \n    methods: 'GET,POST,PUT, PATCH,DELETE',  // Allow methods you need  \n    allowedHeaders: 'Content-Type,Authorization',  // Allow headers  \n  };  \n  \n  return cors(corsOptions);  // Return the configured CORS middleware  \n};  \n  \nexport default corsMiddleware;\n```",
+      "type": "text",
+      "width": 760,
+      "x": -380,
+      "y": -160
+    },
+    {
+      "height": 96,
+      "id": "d33dbdd3eed9698d",
+      "text": "```js\napp.use(corsMiddleware());\n```",
+      "type": "text",
+      "width": 383,
+      "x": 520,
+      "y": 140
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+/** Set Mermaid Diagrams to 100% width of screen by default */
+
+.mermaid svg {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    text-align: left;
+}
+
+/** On hover, make the diagram full width and enable horizontal scrolling */
+
+div:has(> .mermaid) {
+    width: auto !important;
+}
+
+/** Hover-specific styles */
+.mermaid:hover {
+    padding: 0;
+    margin: 0;
+}
+
+/** Apply the same hover styles to non-hover state for consistent behavior */
+.mermaid {
+    overflow: scroll;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.mermaid svg {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* For code blocks in Obsidian's preview mode */
+.markdown-preview-view pre code {
+    white-space: pre; /* Keeps original line breaks and spacing (no wrapping) */
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+    display: block; /* Ensures the code takes up the entire width */
+    /* Expands the width to 150% of its original container width */
+    padding: 8px; /* Optional: adds padding for better readability */
+    border-radius: 5px; /* Optional: rounded corners for the code block */
+    font-size: 14px; /* Optional: adjusts font size */
+    margin: 0 auto; /* Centers the code block horizontally */
+}
+
+/* For code blocks in Obsidian's editor mode */
+.cm-s-obsidian pre.CodeMirror-line {
+    white-space: pre; /* Keeps original line breaks and spacing */
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+    padding: 8px; /* Optional: adds padding for better readability */
+}
+
+
+/* Adjust the width of code blocks */
+.markdown-preview-view pre {
+    max-width: 125%;  /* Increase this value if needed */
+    width: 125%;  /* Increase this value if needed */
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+}
+

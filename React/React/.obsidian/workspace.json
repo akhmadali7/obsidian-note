@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "8afa0408ba3b7317",
+    "type": "split",
+    "children": [
+      {
+        "id": "8115897432a0fcb0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9062174a3b310a45",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "API data fetching/React Query/React Query + Axios Basic.canvas",
+                "viewState": {
+                  "x": 576.6324462858682,
+                  "y": 836.5618357415325,
+                  "zoom": -0.2781678226773271
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "React Query + Axios Basic"
+            }
+          },
+          {
+            "id": "809a8d05a1be8a47",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "JWT FLOW/Untitled.canvas",
+                "viewState": {
+                  "x": 2566.9952708030637,
+                  "y": 116.89949978863189,
+                  "zoom": -1.331193472583649
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9104ef92b28c7759",
+    "type": "split",
+    "children": [
+      {
+        "id": "09c4e810e583ffa8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96642166644074c2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTimeReverse",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d63d3f18397a6ae5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "formik",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "539f95bea5f5e6b7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "b0b2225c8e031aa9",
+    "type": "split",
+    "children": [
+      {
+        "id": "5354de423bb2fecf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6489a1dd4a6fff23",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "State Management/Zustand/Zustand basic.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Zustand basic"
+            }
+          },
+          {
+            "id": "5aa25bc821d4a659",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Axios/Axios interceptor for Token Refresh.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Axios interceptor for Token Refresh"
+            }
+          },
+          {
+            "id": "17ab09a213eb4ac0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a70ab392420d6abb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Axios/Axios interceptor for Token Refresh.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Axios interceptor for Token Refresh"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "809a8d05a1be8a47",
+  "lastOpenFiles": [
+    "API data fetching/React Query/React Query + Axios Basic.canvas",
+    "API data fetching/Axios/Axios interceptor for Token Refresh.md",
+    "JWT FLOW/Untitled.canvas",
+    "JWT FLOW",
+    "Formik/Flow Formik + Yup -> React Query.canvas",
+    "Formik/Formik + React Query.md",
+    "Tailwind/Input Form.canvas",
+    "Tailwind/clsx + tailwind merge.canvas",
+    "Formik/Formik Basic.canvas",
+    "Tailwind/Dark Mode.canvas",
+    "Untitled.md",
+    "Router/React Router.canvas",
+    "Tailwind",
+    "Formik/Formik Component.canvas",
+    "Router",
+    "Formik/Formik + Yup Basic.canvas",
+    "Form Validation/Untitled.md",
+    "Form Validation/Zod",
+    "Form Validation/Yup",
+    "Form Validation",
+    "API data fetching",
+    "State Management/Which state management should I use?.md",
+    "State Management/Zustand/Zustand is better than Redux and Context API?.md",
+    "State Management/Redux",
+    "State Management",
+    "API data fetching/React Query/Cache.md",
+    "API data fetching/Axios",
+    "Welcome.md"
+  ]
+}

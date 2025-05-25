@@ -1,0 +1,49 @@
+{
+  "edges": [
+    {
+      "fromNode": "730f659311780e31",
+      "fromSide": "right",
+      "id": "8506c8e229c94652",
+      "styleAttributes": {
+      },
+      "toNode": "6b30efc1e4888844",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 640,
+      "id": "730f659311780e31",
+      "styleAttributes": {
+      },
+      "text": "```js\n/**  \n * Checks if all required fields are present in the request body. \n * @param {Array} requiredFields - List of required fields.  \n * @param {Object} body - Request body.  \n * @param {NextFunction} next - Express next function for error handling.  \n * @returns {boolean} - Returns true if missing fields, else false.  \n */function validateRequiredFields(requiredFields, body, next) {  \n    const missingFields = [];  \n    for (let field of requiredFields) {  \n        if (!body[field]) {  \n            missingFields.push(field);  \n        }    }  \n  \n    if (missingFields.length > 0) {  \n        // Pass an error to the next middleware with status 400  \n        const error = new Error(`Missing required fields: ${missingFields.join(', ')}`);  \n        error.statusCode = 400; // Bad Request  \n        error.code = \"MISSING_FIELD\";  \n        // error.missingFields = missingFields;  \n        return next(error); // Passing the error to the error handler  \n    }  \n  \n    return false; // No missing fields  \n}  \n  \nexport default validateRequiredFields;\n```",
+      "type": "text",
+      "width": 840,
+      "x": -500,
+      "y": -380
+    },
+    {
+      "height": 390,
+      "id": "6b30efc1e4888844",
+      "styleAttributes": {
+      },
+      "text": "```js\nexport const updateOneCriteria = asyncHandler(async (req, res, next) => {  \n    const id_criteria = req.params.id_criteria  \n    const body = req.body  \n    const updateAbleFields = ['name', 'email']  \n  \n    //TODO validation : isCriteriaExist?  \n    //TODO validation : isReqBodyExist?  \n    const acceptedBody = validateUpdateableFields(updateAbleFields, body, next)  \n    res.status(200).json({  \n        message: \"success update one criteria\",  \n        id_deleted: id_criteria  \n    });  \n})\n```",
+      "type": "text",
+      "width": 860,
+      "x": 580,
+      "y": -280
+    },
+    {
+      "color": "5",
+      "height": 260,
+      "id": "452583e961eef563",
+      "styleAttributes": {
+      },
+      "text": "\n**Note:**  \nThe `validateUpdatableFields` function checks if the request body contains at least one field that is allowed to be updated. If none are present, it throws an error using the `next()` function in Express.\n\nIt is typically used in **PUT** or **PATCH** methods, since these methods allow partial data updates and you need to ensure at least one valid field is being updated.",
+      "type": "text",
+      "width": 620,
+      "x": -500,
+      "y": -800
+    }
+  ]
+}

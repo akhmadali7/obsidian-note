@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"812baf8f3090f550","x":-720,"y":-400,"width":800,"height":400,"type":"text","text":"```js\n// utils/removeKeys.js  \n  \n/**  \n * Removes specified keys from an object and returns a new object without them. * \n * @param {Object} obj - The original object.  \n * @param {string[] | string} keys - Key or array of keys to remove.  \n * @returns {Object} A new object without the specified keys.  \n */function removeKeys(obj, keys) {  \n    const keysToRemove = Array.isArray(keys) ? keys : [keys];  \n    return Object.fromEntries(  \n        Object.entries(obj).filter(([key]) => !keysToRemove.includes(key))  \n    );  \n}  \n  \nexport default removeKeys;\n```"},
+		{"id":"b63ce78be53c22bd","x":240,"y":-420,"width":835,"height":160,"type":"text","text":"Array\n```js\nconst data_user = data.map(item => removeKeys(item, ['user_id', 'date_created']));\n```"}
+	],
+	"edges":[
+		{"id":"ed3276dbe526aed0","fromNode":"812baf8f3090f550","fromSide":"right","toNode":"b63ce78be53c22bd","toSide":"left"}
+	]
+}

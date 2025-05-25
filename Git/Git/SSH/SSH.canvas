@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"05340a49098ae0e6","x":-535,"y":-320,"width":555,"height":400,"type":"text","text":"## Local \n\n``` shell\nsudo ls -al ~/.ssh\n```\n\n```shell\nssh-keygen -t rsa -b 4096 -C \"akhmadali77gmail.com\" \n```\n\n```shell\neval \"$(ssh-agent -s)\"\n```\n\n```shell\nssh-add ~/.ssh/id_rsa\n```\n\n```shell\ncat ~/.ssh/id_rsa.pub\n```"},
+		{"id":"731a7282e3ca1745","x":180,"y":-380,"width":250,"height":213,"type":"text","text":"You got SSH public key:\n```shell\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDXKKqEiyO5wqLpmOHH4lHgeqVT1cNpXZw+5ogDgE3psc6F9hLDBeu90GZsfzccdzoYhpzxjzfG5uNd7JaYT5agougTqJcwjppXUKXncbRD0dcPk2t/MqXINKXxtrPNGCXsXkvpYZ+cnpD9f54nM0El4YnjSZMjUiNjLn0j4yWNqk1JbZ76KblBkliNK113r/tqQ8mg8knGK25g0yEOx7SEed1ITHkp9+fUkpkT2yT0CX2j9ijfNHzm0V2YysS+HBxiuI1hSHh4XmLZMKjGOx7j3d0K3AiQCXbjndpnrju86mw/LQxwBrWjJ/Y9dgrUJjMMtwMCzOT9TbHZCvtC33oq7pXbQmvJpu07D70rDTXOEvpUJL6XjNITRQdvR22clkIYMZcYQeQQR97BbnQktoIqFxc6gX0QHp3bJScM3M+2QH1uFVbmQ1SOkxD4K7+CtLiBiJp1lK2CzGD2a3WnLN+rE1pihliOz9WdxlwCbumSuMEztSRpMSpAXAXNYSUjaww862Jt7SWg7WicmIUsghZS17EqmMBadgKW66Wvjqg8a2IaTiNnu/0TwlulucCz0nlNkXQE5WVYUz2/xAACBeztg4M4hQdRJpkGcf+Clv+QwRepLMAglIaoFpCYxH17wS97gMt+wbgOyc/YLQBrJIkU989F7DlGLcPxT73w== akhmadali77gmail.com\n```"},
+		{"id":"69bc292d2eddbfaf","x":520,"y":-320,"width":420,"height":400,"type":"text","text":"## Set up it in Github\ntest it:\n```shell\nssh -T git@github.com\n```\n\nif all good you can clone using ssh"},
+		{"id":"8988941d7ed96642","x":540,"y":-564,"width":305,"height":104,"type":"text","text":"```shell\n nano ~/.ssh/config\n\n```"}
+	],
+	"edges":[
+		{"id":"96c80aa9fca8570e","fromNode":"05340a49098ae0e6","fromSide":"right","toNode":"69bc292d2eddbfaf","toSide":"left","label":"Add generated SSH to Github"}
+	]
+}

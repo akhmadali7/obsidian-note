@@ -1,0 +1,6 @@
+{
+	"nodes":[
+		{"id":"a676c05f34f326b4","x":-640,"y":-420,"width":1300,"height":560,"type":"text","text":"```js\nconst generateNamesFromEmail = (email) => {\n  const username = email.split(\"@\")[0]; // Get the part before the '@'\n  const cleanedUsername = username.replace(/[^a-zA-Z0-9_.-]/g, \"\"); // Remove invalid characters, allow numbers, underscores, periods, hyphens\n  const splitName = cleanedUsername.split(/[._-]/); // Split based on common delimiters like '.', '_', or '-'\n\n  let first_name = splitName[0] || \"\";\n  let last_name = splitName.length > 1 ? splitName.slice(1).join(\" \") : \"\"; // If more than one part, join the remaining ones as last name\n\n  // Capitalize the first letter of both names\n  first_name = first_name.charAt(0).toUpperCase() + first_name.slice(1).toLowerCase();\n  last_name = last_name.charAt(0).toUpperCase() + last_name.slice(1).toLowerCase();\n\n  // If there's no last name, assign a space or handle it as a fallback\n  if (!last_name) {\n    last_name = \" \";\n  }\n\n  return { first_name, last_name };\n};\n\nexport { generateNamesFromEmail };\n\n```"}
+	],
+	"edges":[]
+}

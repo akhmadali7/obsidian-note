@@ -1,0 +1,131 @@
+{
+  "edges": [
+    {
+      "color": "1",
+      "fromNode": "feb3dcd46320a7d9",
+      "fromSide": "left",
+      "id": "5559001af9ce399f",
+      "toNode": "26a0a7fd7b06a3aa",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "3f881e8f724d7b17",
+      "fromSide": "left",
+      "id": "0cb8a582eb3eebe3",
+      "toNode": "b16a5e017b99236b",
+      "toSide": "right"
+    },
+    {
+      "color": "5",
+      "fromNode": "feb3dcd46320a7d9",
+      "fromSide": "left",
+      "id": "9916cd461bab531f",
+      "label": "✅",
+      "toNode": "287b6adad7af0556",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "5c0d30eb6062b369",
+      "fromSide": "left",
+      "id": "fea60711701a3da2",
+      "toNode": "feb3dcd46320a7d9",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "bcf78d6371544d99",
+      "fromSide": "left",
+      "id": "9e2cd4d47b6213ae",
+      "toNode": "feb3dcd46320a7d9",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "feb3dcd46320a7d9",
+      "fromSide": "top",
+      "id": "2091130756dcd6dd",
+      "styleAttributes": {
+      },
+      "toNode": "b16a5e017b99236b",
+      "toSide": "right"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 260,
+      "id": "3f881e8f724d7b17",
+      "styleAttributes": {
+      },
+      "text": "```js\n/**  \n * Middleware function to handle 404 errors when a route is not found. */\n export const notFound = (req, res, next) => {  \n    const error = new Error(`Not found - ${req.originalUrl}`) // Create error with the original URL  \n    res.status(400) // Set status code to 400 (Bad Request)  \n    next(error) // Pass the error to the next error-handling middleware  \n}  \n  \n```",
+      "type": "text",
+      "width": 960,
+      "x": 80,
+      "y": -280
+    },
+    {
+      "height": 250,
+      "id": "5c0d30eb6062b369",
+      "styleAttributes": {
+      },
+      "text": "## Mongoose\n```js\n  // Mongoose error handling: Specifically for invalid ObjectId errors    \n    if (err.name === 'CastError' && err.kind === 'ObjectId') {  \n        statusCode = 404 // Change status code to 404 for resource not found  \n        message = 'Resource not found' // Customize the error message  \n    }  \n```",
+      "type": "text",
+      "width": 815,
+      "x": 1240,
+      "y": 40
+    },
+    {
+      "height": 440,
+      "id": "bcf78d6371544d99",
+      "styleAttributes": {
+      },
+      "text": "## MySQL2\n```js\n      // Handle MySQL errors:\n    if (err.code === 'ER_BAD_FIELD_ERROR') {\n        statusCode = 400; // Bad Request\n        message = 'There was an issue with your request. Please check the fields.';\n    } else if (err.code === 'ER_NO_SUCH_TABLE') {\n        statusCode = 404; // Resource not found\n        message = 'The requested resource could not be found.';\n    } else if (err.code === 'ER_PARSE_ERROR') {\n        statusCode = 400; // Bad Request\n        message = 'There was an error in processing your request.';\n    } else if (err.code === 'ER_DUP_ENTRY') {\n        statusCode = 409; // Conflict\n        message = 'A conflict occurred, please check your input.';\n    }\n```",
+      "type": "text",
+      "width": 815,
+      "x": 1240,
+      "y": 320
+    },
+    {
+      "height": 240,
+      "id": "287b6adad7af0556",
+      "styleAttributes": {
+      },
+      "text": "```js\n  if (!req.body || Object.keys(req.body).length === 0) {\n        const error = new Error('Request body is missing or empty');\n        error.statusCode = 400;\n        error.code = \"MISSING_BODY\";\n        next(error);  // Pass the error to the error handler\n        return;  // Early exit to prevent further code execution\n    }\n```",
+      "type": "text",
+      "width": 649,
+      "x": -749,
+      "y": 680
+    },
+    {
+      "color": "5",
+      "height": 160,
+      "id": "b16a5e017b99236b",
+      "styleAttributes": {
+      },
+      "text": "```js\n//index.js\n//always after the all define route  \napp.use(notFound);  \napp.use(errorHandler);\n```",
+      "type": "text",
+      "width": 470,
+      "x": -800,
+      "y": 40
+    },
+    {
+      "height": 600,
+      "id": "feb3dcd46320a7d9",
+      "styleAttributes": {
+      },
+      "text": "```js\n/**  \n * Global error handler for catching and processing errors. */\nconst errorHandler = (err, req, res, next) => {\n    let statusCode = err.statusCode || 500;\n    let message = err.message || 'Internal server error'; // Default message from the error\n    let code = err.code || 'UNKNOWN_ERROR'; // Default error code if none exists\n\n  \t// TODO Database Error Handling ADD to this section\n\n    // Handle custom error (e.g., 404 for resource not found)\n    if (err.statusCode === 404) {\n        message = err.message || 'Resource not found';\n    }\n\n    // Respond with status code and a JSON response containing the message and stack trace\n    res.status(statusCode).json({\n        message: message, // Send the error message\n        code: code,\n\n        // Conditionally include stack trace based on environment\n        stack: process.env.NODE_ENV === \"development\" ? err.stack : undefined //pakai null juga bisa\n    });\n};\n\n```",
+      "type": "text",
+      "width": 970,
+      "x": 80,
+      "y": 320
+    },
+    {
+      "height": 160,
+      "id": "26a0a7fd7b06a3aa",
+      "styleAttributes": {
+      },
+      "text": "```js\n//controller\n//if want to trigger and error\n const error = new Error('Something went wrong');\n    next(error);  // This will trigger the errorHandler\n```",
+      "type": "text",
+      "width": 560,
+      "x": -749,
+      "y": 480
+    }
+  ]
+}

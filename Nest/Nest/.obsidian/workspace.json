@@ -1,0 +1,214 @@
+{
+  "main": {
+    "id": "be5251d8afaf7a1c",
+    "type": "split",
+    "children": [
+      {
+        "id": "39026fa9b73593bb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b45f300404a6ba81",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "System Flow/System Flow.canvas",
+                "viewState": {
+                  "x": 743.673349771625,
+                  "y": -118.64162754495862,
+                  "zoom": -0.9433333333333344
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "System Flow"
+            }
+          },
+          {
+            "id": "ad8bcfb2a6a4c3a0",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Packages Libraries/node-mocks-http.canvas",
+                "viewState": {
+                  "x": 0.5,
+                  "y": 0.5,
+                  "zoom": 0
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "node-mocks-http"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "017af04ab6d4992c",
+    "type": "split",
+    "children": [
+      {
+        "id": "746465e48091dfd6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b89e901c8b6756d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "39212ae469199340",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a1b3464848715168",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dd04042a9e8b0b05",
+    "type": "split",
+    "children": [
+      {
+        "id": "95064113bbbcbef9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ca8d4651839d0c5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "a8446df811f4f22c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "79115f9497f2e225",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e5e87a1233666a49",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "b45f300404a6ba81",
+  "lastOpenFiles": [
+    "System Flow/System Flow.md",
+    "System Flow/System Flow.canvas",
+    "System Flow",
+    "Packages Libraries/Mustache.canvas",
+    "Packages Libraries/cookie-parser.canvas",
+    "Packages Libraries/node-mocks-http.canvas",
+    "Unit Test",
+    "Controllers/Untitled.canvas",
+    "Packages/Untitled.md",
+    "Application/asdadsd.canvas",
+    "Packages Libraries",
+    "Javascript Essential",
+    "Application/sfsdfdsf.md",
+    "Welcome.md",
+    "Filters",
+    "Pipes",
+    "Interceptors",
+    "Middlewares",
+    "Providers",
+    "Application"
+  ]
+}

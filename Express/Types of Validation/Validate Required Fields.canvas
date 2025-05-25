@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"e3adc7682ff6e149","type":"text","text":"```js\n  const requiredFields = [\"email\", \"password\"];\n  if (validateRequiredFields(requiredFields, body, res)) {\n      return;\n    }\n```","x":-896,"y":460,"width":607,"height":170},
+		{"id":"11ea0636d601de43","type":"text","text":"```js\n//index.js\napp.use(express.json());\napp.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies\n\n```","x":68,"y":480,"width":812,"height":160,"color":"5"},
+		{"id":"60537d06eeaba142","type":"text","text":"# Adjusted version with a suggestion for future async handling\n\n```js\n\n/**  \n * Checks if all required fields are present in the request body. * @param {Array} requiredFields - List of required fields.  \n * @param {Object} body - Request body.  \n * @param {Function} next - Express next function for error handling.  \n * @returns {boolean} - Returns true if missing fields, else false.  \n */function validateRequiredFields(requiredFields, body, next) {  \n    const missingFields = [];  \n    for (let field of requiredFields) {  \n        if (!body[field]) {  \n            missingFields.push(field);  \n        }    }  \n  \n    if (missingFields.length > 0) {  \n        // Pass an error to the next middleware with status 400  \n        const error = new Error(`Missing required fields: ${missingFields.join(', ')}`);  \n        error.statusCode = 400; // Bad Request  \n        error.code = \"MISSING_FIELD\";  \n        return next(error); // Passing the error to the error handler  \n    }  \n  \n    return false; // No missing fields  \n}  \n  \nexport default validateRequiredFields;\n\n```","x":-940,"y":-460,"width":1180,"height":700}
+	],
+	"edges":[
+		{"id":"c0e0c7324a5f6394","fromNode":"60537d06eeaba142","fromSide":"bottom","toNode":"e3adc7682ff6e149","toSide":"top"}
+	]
+}

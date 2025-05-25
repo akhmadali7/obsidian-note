@@ -1,0 +1,35 @@
+{
+  "edges": [
+    {
+      "fromNode": "b1640cdcb0da7754",
+      "fromSide": "bottom",
+      "id": "d42034d45a99fed9",
+      "toNode": "f57a0376559cd1a8",
+      "toSide": "top"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 340,
+      "id": "b1640cdcb0da7754",
+      "styleAttributes": {
+      },
+      "text": "```js\n// Middleware to log HTTP requests with a timestamp down to the second\nconst log = (req, res, next) => {\n    const timestamp = new Date().toISOString().split('T').join(' ').split('.')[0]; // Format: YYYY-MM-DD HH:mm:ss\n\n    res.on('finish', () => {\n        console.log(`[${timestamp}] ${req.method} ${req.originalUrl} - ${res.statusCode}`);\n    });\n\n    next();\n};\n\nexport { log };\n```",
+      "type": "text",
+      "width": 1051,
+      "x": -211,
+      "y": -340
+    },
+    {
+      "height": 131,
+      "id": "f57a0376559cd1a8",
+      "styleAttributes": {
+      },
+      "text": "```js\napp.use(log)\n\n//main route here\n```",
+      "type": "text",
+      "width": 245,
+      "x": 115,
+      "y": 69
+    }
+  ]
+}
