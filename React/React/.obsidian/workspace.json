@@ -32,9 +32,9 @@
               "state": {
                 "file": "JWT FLOW/JWT - AT & RT complete FLOW.canvas",
                 "viewState": {
-                  "x": 1946.4816960325454,
-                  "y": 1040.225333135303,
-                  "zoom": -2.8284694848306837
+                  "x": 1295.7346884279764,
+                  "y": 1590.2478486388504,
+                  "zoom": -1.4618028181640186
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -99,8 +99,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "b0b2225c8e031aa9",
