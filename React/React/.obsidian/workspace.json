@@ -15,9 +15,9 @@
               "state": {
                 "file": "API data fetching/React Query/React Query + Axios Basic.canvas",
                 "viewState": {
-                  "x": 576.6324462858682,
-                  "y": 836.5618357415325,
-                  "zoom": -0.2781678226773271
+                  "x": 713.4378047884118,
+                  "y": 651.1050280693801,
+                  "zoom": -1.5915011560106593
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -30,15 +30,15 @@
             "state": {
               "type": "canvas",
               "state": {
-                "file": "JWT FLOW/Untitled.canvas",
+                "file": "JWT FLOW/JWT - AT & RT complete FLOW.canvas",
                 "viewState": {
-                  "x": 2566.9952708030637,
-                  "y": 116.89949978863189,
-                  "zoom": -1.331193472583649
+                  "x": 1946.4816960325454,
+                  "y": 1040.225333135303,
+                  "zoom": -2.8284694848306837
                 }
               },
               "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "title": "JWT - AT & RT complete FLOW"
             }
           }
         ],
@@ -193,8 +193,8 @@
   "active": "809a8d05a1be8a47",
   "lastOpenFiles": [
     "API data fetching/React Query/React Query + Axios Basic.canvas",
+    "JWT FLOW/JWT - AT & RT complete FLOW.canvas",
     "API data fetching/Axios/Axios interceptor for Token Refresh.md",
-    "JWT FLOW/Untitled.canvas",
     "JWT FLOW",
     "Formik/Flow Formik + Yup -> React Query.canvas",
     "Formik/Formik + React Query.md",
